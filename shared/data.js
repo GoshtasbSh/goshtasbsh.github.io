@@ -117,12 +117,6 @@ window.PROFILE = {
   affiliations: [
     {
       role: "Graduate Research Assistant",
-      org: "iAdapt - International Center for Adaptation Planning & Design",
-      years: "Aug 2025 - Feb 2026",
-      detail: "FDOT District 5: review and comparative analysis of existing transport analyses for Central Florida. Advisor: Dr. Zhong-Ren Peng.",
-    },
-    {
-      role: "Graduate Research Assistant",
       org: "Florida Institute for Built Environment Resilience (FIBER), UF",
       years: "Jan 2022 - Present",
     },
@@ -130,6 +124,12 @@ window.PROFILE = {
       role: "Graduate Research Assistant",
       org: "Disasters, Trust, and Social Change Lab, UF",
       years: "Jun 2023 - Present",
+    },
+    {
+      role: "Graduate Research Assistant",
+      org: "iAdapt - International Center for Adaptation Planning & Design",
+      years: "Aug 2025 - Feb 2026",
+      detail: "FDOT District 5: review and comparative analysis of existing transport analyses for Central Florida. Advisor: Dr. Zhong-Ren Peng.",
     },
   ],
 
@@ -399,20 +399,6 @@ window.PROFILE = {
 
   affiliationsDetailed: [
     {
-      key: "iadapt",
-      name: "iAdapt",
-      full: "International Center for Adaptation Planning & Design",
-      school: "University of Florida",
-      role: "Graduate Research Assistant",
-      years: "Aug 2025 - Feb 2026",
-      status: "Completed",
-      link: "https://dcp.ufl.edu/iadapt",
-      advisor: "Dr. Zhong-Ren Peng",
-      project: "FDOT District 5 - review and comparative analysis of existing transport analyses for Central Florida.",
-      blurb:
-        "Completed appointment (Aug 2025 - Feb 2026) on the FDOT District 5 project at iAdapt, focused on review and comparative analysis of existing transport analyses for Central Florida.",
-    },
-    {
       key: "fiber",
       name: "FIBER",
       full: "Florida Institute for Built Environment Resilience",
@@ -437,6 +423,20 @@ window.PROFILE = {
       project: null,
       blurb:
         "GRA at the DTSC Lab - field survey, dashboards, and analysis work. Open-source outputs include the Keystone Heights project on GitHub.",
+    },
+    {
+      key: "iadapt",
+      name: "iAdapt",
+      full: "International Center for Adaptation Planning & Design",
+      school: "University of Florida",
+      role: "Graduate Research Assistant",
+      years: "Aug 2025 - Feb 2026",
+      status: "Completed",
+      link: "https://dcp.ufl.edu/iadapt",
+      advisor: "Dr. Zhong-Ren Peng",
+      project: "FDOT District 5 - review and comparative analysis of existing transport analyses for Central Florida.",
+      blurb:
+        "Completed appointment (Aug 2025 - Feb 2026) on the FDOT District 5 project at iAdapt, focused on review and comparative analysis of existing transport analyses for Central Florida.",
     },
   ],
 
