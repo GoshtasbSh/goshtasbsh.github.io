@@ -260,7 +260,8 @@ window.PROFILE = {
         "Conceptualizing the Tourist Journey: Qualitative Analysis of Tourist Experiences on TripAdvisor",
       venue: "Journal of Quality Assurance in Hospitality and Tourism",
       doi: "https://doi.org/10.1080/17489725.2021.1880029",
-      pdfUrl: "#pdf-coming-soon",
+      pdfUrl: null,
+      openAccess: false,
       tags: ["Qualitative", "Tourism", "Text Analysis"],
     },
     {
@@ -271,7 +272,8 @@ window.PROFILE = {
         "A Store Location-based Recommender System Based on User's Position and Web Searches",
       venue: "Journal of Location Based Services",
       doi: "https://doi.org/10.1080/17489725.2021.1880029",
-      pdfUrl: "#pdf-coming-soon",
+      pdfUrl: "assets/paper-2021-lbs-recommender.pdf",
+      openAccess: true,
       tags: ["LBS", "Recommender", "First Author"],
     },
     {
@@ -282,7 +284,8 @@ window.PROFILE = {
         "Discover Points of Interest based on Users' Internet Searches Through an Online Shopping Website",
       venue: "ISPRS International Joint Conference 2019",
       doi: "#",
-      pdfUrl: "#pdf-coming-soon",
+      pdfUrl: "assets/paper-2020-isprs-poi.pdf",
+      openAccess: true,
       tags: ["POI", "Recommender", "Conference"],
     },
   ],
@@ -341,6 +344,7 @@ window.PROFILE = {
       gpa: "3.81 / 4.00",
       advisor: null,
       thesis: null,
+      certificateUrl: "assets/msc-ece-degree.pdf",
       blurb:
         "Dual degree pursued alongside the PhD to bring modern machine learning, computer vision, and (most recently) LLM and agent-AI methods into the urban-analytics work. Capstones spanned pattern recognition, deep learning, applied ML, and an ongoing line of LLM-powered tools (GeoChatBot and follow-on projects).",
       highlights: [
