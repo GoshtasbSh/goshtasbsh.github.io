@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-<title>Goshtasb Shahriari Mehr - Spatial AI</title>
-<meta name="description" content="PhD candidate at the University of Florida. Agent-based modeling, machine learning, computer vision, and LLM-powered agents - applied to urban analytics and food access." />
+<title>Goshtasb Shahriari Mehr - ML / AI Engineer, Spatial Analytics</title>
+<meta name="description" content="ML / AI software engineer with a spatial background. LLM agents, agent-based simulation, and production geospatial platforms - GeoChatBot, Local Glean, KeyStone, FieldSurvey. PhD, University of Florida." />
 <meta name="author" content="Goshtasb Shahriari Mehr" />
 <link rel="icon" type="image/jpeg" href="assets/logo.jpg" />
 <link rel="apple-touch-icon" href="assets/logo.jpg" />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Goshtasb Shahriari Mehr - Spatial AI" />
-<meta property="og:description" content="PhD candidate at the University of Florida. Agent-based modeling, ML, computer vision, and LLM-powered agents for urban analytics." />
+<meta property="og:title" content="Goshtasb Shahriari Mehr - ML / AI Engineer, Spatial Analytics" />
+<meta property="og:description" content="LLM agents, agent-based simulation, and production geospatial platforms. GeoChatBot, Local Glean, KeyStone, FieldSurvey - all live. PhD, University of Florida." />
 <meta property="og:image" content="assets/photo.jpeg" />
 <meta property="og:url" content="https://goshtasbsh.github.io/" />
 <meta name="twitter:card" content="summary_large_image" />
@@ -174,6 +174,22 @@
   .project .actions a{font:600 11px/1 "JetBrains Mono",monospace;letter-spacing:1px;text-transform:uppercase;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:var(--glass-2);color:var(--fg);transition:.2s;text-decoration:none}
   .project .actions a.primary{background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#0a0f1c;border:0}
   .project .actions a:hover{transform:translateY(-2px)}
+  .project.clickable{cursor:pointer;text-align:left;font:inherit;color:inherit;width:100%}
+  .project .ptop{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+  .project .pstatus{font:600 10px/1 "JetBrains Mono",monospace;letter-spacing:1px;text-transform:uppercase;color:#0a0f1c;background:linear-gradient(120deg,var(--accent),var(--accent-2));padding:6px 9px;border-radius:999px;white-space:nowrap;flex-shrink:0}
+  .project .pstatus.muted{background:none;color:var(--mut);border:1px solid rgba(125,138,161,.35)}
+  .pmetrics{display:flex;flex-wrap:wrap;gap:16px;padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+  .pmetrics div{font:500 10px/1.3 "JetBrains Mono",monospace;color:var(--mut);letter-spacing:1px;text-transform:uppercase}
+  .pmetrics div b{display:block;font:700 15px/1.2 "Plus Jakarta Sans";color:var(--fg);letter-spacing:-.3px;text-transform:none;margin-bottom:2px}
+  .project .pmore{font:600 11px/1 "JetBrains Mono",monospace;color:var(--c-llm);letter-spacing:1.5px;text-transform:uppercase}
+
+  .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+  .filters button{font:600 11px/1 "JetBrains Mono",monospace;letter-spacing:1.2px;text-transform:uppercase;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:var(--glass);color:var(--mut);cursor:pointer;transition:.2s}
+  .filters button:hover{color:var(--fg);border-color:var(--accent)}
+  .filters button.on{background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#0a0f1c;border-color:transparent}
+  .modal .caveat{border-left:2px solid var(--c-abm);background:rgba(255,186,59,.07);padding:12px 14px;border-radius:0 10px 10px 0;color:#e4d3ae;font-size:13.5px;line-height:1.5;margin:16px 0 4px}
+  .modal .caveat b{display:block;font:600 10px/1 "JetBrains Mono",monospace;letter-spacing:1.5px;text-transform:uppercase;color:var(--c-abm);margin-bottom:6px}
+  .modal .linkRow{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
 
   .pubs{display:flex;flex-direction:column;gap:14px}
   .pub{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:24px 28px;backdrop-filter:blur(20px);display:grid;grid-template-columns:80px 1fr auto;gap:24px;align-items:center}
@@ -310,12 +326,7 @@
     </div>
 
     <div class="heroFoot">
-      <div class="quickInfo">
-        <div><b>04</b>DEGREES</div>
-        <div><b>03</b>PUBLICATIONS</div>
-        <div><b>10+</b>SHIPPING REPOS</div>
-        <div><b>2026</b>PhD DEFENDED</div>
-      </div>
+      <div class="quickInfo" id="quickInfo"></div>
       <div class="ctas">
         <a class="primary" href="mailto:g.shahriarimehr@ufl.edu">EMAIL &rarr;</a>
         <a href="https://www.linkedin.com/in/goshtasb-shahriari-mehr-1826bb130/" target="_blank" rel="noopener">LINKEDIN</a>
@@ -336,19 +347,17 @@
   <div class="secHead">
     <div>
       <div class="num">// 01 - Profile</div>
-      <h2>A researcher in <em>spatial AI.</em></h2>
+      <h2>An engineer who <em>ships spatial AI.</em></h2>
     </div>
-    <div class="deck">Geomatics, GIS, urban analytics, and machine learning. Four disciplines on one question.</div>
+    <div class="deck">Geomatics, GIS, urban analytics, and machine learning - built into software that runs.</div>
   </div>
   <div class="profile">
     <div class="avatar"></div>
     <div>
       <h3>Goshtasb <em>Shahriari Mehr</em></h3>
-      <p>PhD candidate in Design, Construction & Planning at the University of Florida. In December 2025 I completed a dual MSc in Electrical & Computer Engineering at UF, taken alongside the PhD to bring modern machine learning, computer vision, and LLM and agent-AI methods into the urban-analytics work.</p>
-      <p>My dissertation, defended in 2026, populates Jacksonville Health Zone 1 with synthetic residents and simulates how they reach food. The output is concrete policy recommendations on transit, retail siting, and pricing - all derived from the ABM results. Built in Python with Mesa and GeoMesa.</p>
-      <p>I am now extending this practice into LLM-powered agents (GeoChatBot is the first), while wrapping the FDOT District 5 transport-analysis review with iAdapt.</p>
+      <div id="bioText"></div>
       <div class="badges">
-        <span>UF - PhD</span><span>UF - MSc ECE (dual)</span><span>U Tehran - MSc GIS</span><span>KNTU - BSc Civil-Geomatics</span>
+        <span>UF - PhD (2026)</span><span>UF - MSc ECE (dual)</span><span>U Tehran - MSc GIS</span><span>KNTU - BSc Civil-Geomatics</span>
       </div>
       <div class="cvRow">
         <a class="cvBtn" href="assets/cv.pdf" download>Download CV <span>&darr;</span></a>
@@ -403,10 +412,14 @@
   <div class="secHead">
     <div>
       <div class="num">// 05 - Shipping</div>
-      <h2>Selected <em>projects.</em></h2>
+      <h2>Things I have <em>built.</em></h2>
     </div>
-    <div class="deck">Live on GitHub. Most are reproducible end to end.</div>
+    <div>
+      <div class="deck">Solo-built, tested, and where possible deployed. Five are live right now.</div>
+      <div class="hint">&darr; Click any project for the full technical record</div>
+    </div>
   </div>
+  <div class="filters" id="projectFilters"></div>
   <div class="projects" id="projectsGrid"></div>
 </section>
 
@@ -453,7 +466,7 @@
 </div>
 
 <script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
-<script src="shared/data.js?v=20260517a"></script>
+<script src="shared/data.js?v=20260727a"></script>
 <script>
 const P=window.PROFILE;
 const DPR=Math.min(window.devicePixelRatio||1,2);
@@ -486,6 +499,14 @@ const menuBtn=document.getElementById('menuBtn');
 const navlinks=document.getElementById('navlinks');
 menuBtn.onclick=()=>navlinks.classList.toggle('open');
 navlinks.addEventListener('click',e=>{if(e.target.tagName==='A')navlinks.classList.remove('open');});
+
+/* ========== Hero stats + bio (data-driven) ========== */
+(function buildHeroBits(){
+  const qi=document.getElementById('quickInfo');
+  (P.heroStats||[]).forEach(s=>qi.insertAdjacentHTML('beforeend',`<div><b>${s.n}</b>${s.k}</div>`));
+  const bt=document.getElementById('bioText');
+  (P.bio||[]).forEach(t=>bt.insertAdjacentHTML('beforeend',`<p>${t}</p>`));
+})();
 
 /* ========== Sections ========== */
 const ig=document.getElementById('interestsGrid');
@@ -544,18 +565,79 @@ document.querySelectorAll('[data-aff]').forEach(btn=>btn.onclick=()=>{
   `);
 });
 
+/* ---- Projects: filter chips + cards + detail modal ---- */
 const pg=document.getElementById('projectsGrid');
-P.projects.filter(p=>p.featured).forEach(p=>{
-  const dash=p.dashboardUrl?`<a class="primary" href="${p.dashboardUrl}" target="_blank" rel="noopener">View Dashboard &rarr;</a>`:'';
-  pg.insertAdjacentHTML('beforeend',
-    `<div class="project">
-       <div class="ptag">${p.tag} - ${p.year}</div>
-       <h4>${p.name}</h4>
-       <p>${p.summary}</p>
-       <div class="stack">${p.stack.map(s=>`<span>${s}</span>`).join('')}</div>
-       <div class="actions">${dash}<a href="${p.url}" target="_blank" rel="noopener">View Code on GitHub &rarr;</a></div>
-     </div>`);
-});
+const pf=document.getElementById('projectFilters');
+const LIVE=/live|deployed|playable/i;
+
+function projectCard(p){
+  const live=LIVE.test(p.status||'');
+  const metrics=(p.metrics||[]).length
+    ? `<div class="pmetrics">${p.metrics.map(m=>`<div><b>${m.v}</b>${m.k}</div>`).join('')}</div>` : '';
+  const stack=(p.stack||[]).slice(0,6).map(s=>`<span>${s}</span>`).join('');
+  return `<button class="project clickable" data-proj="${p.key}" data-cat="${p.category}">
+      <div class="ptop">
+        <div class="ptag">${p.tag} - ${p.year}</div>
+        ${p.status?`<span class="pstatus${live?'':' muted'}">${p.status}</span>`:''}
+      </div>
+      <h4>${p.name}</h4>
+      <p>${p.summary}</p>
+      ${metrics}
+      <div class="stack">${stack}</div>
+      <div class="pmore">Open the record &rarr;</div>
+    </button>`;
+}
+
+function renderProjects(cat){
+  const list=P.projects.filter(p=>cat==='All'?true:p.category===cat);
+  pg.innerHTML=list.map(projectCard).join('');
+  pg.querySelectorAll('[data-proj]').forEach(btn=>btn.onclick=()=>openProject(btn.dataset.proj));
+}
+
+function openProject(key){
+  const p=P.projects.find(x=>x.key===key);
+  if(!p)return;
+  const meta=[
+    `<div>Category<b>${p.category}</b></div>`,
+    `<div>Year<b>${p.year}</b></div>`,
+    p.role?`<div>Role<b>${p.role}</b></div>`:'',
+    p.status?`<div>Status<b>${p.status}</b></div>`:'',
+  ].join('');
+  const metrics=(p.metrics||[]).length
+    ? `<div class="pmetrics" style="margin-bottom:18px">${p.metrics.map(m=>`<div><b>${m.v}</b>${m.k}</div>`).join('')}</div>` : '';
+  const paras=(p.detail&&p.detail.length?p.detail:[p.summary]).map(t=>`<p>${t}</p>`).join('');
+  const hi=(p.highlights||[]).length
+    ? `<p style="margin-bottom:6px;color:var(--mut);font:600 11px/1 'JetBrains Mono',monospace;letter-spacing:1.5px;text-transform:uppercase">What it demonstrates</p><ul>${p.highlights.map(h=>`<li>${h}</li>`).join('')}</ul>` : '';
+  const caveat=p.note?`<div class="caveat"><b>Scope note</b>${p.note}</div>`:'';
+  const links=[
+    p.demoUrl?{label:p.demoLabel||'Open live',url:p.demoUrl}:null,
+    p.url?{label:'Code on GitHub',url:p.url}:null,
+    ...(p.links||[]),
+  ].filter(Boolean);
+  const linkRow=links.length
+    ? `<div class="linkRow">${links.map(l=>`<a class="extLink" href="${l.url}" target="_blank" rel="noopener">${l.label} &rarr;</a>`).join('')}</div>`
+    : `<div class="linkRow"><span class="extLink" style="opacity:.6;cursor:default">Code available on request</span></div>`;
+  openModal(`
+    <span class="badge">${p.tag}</span><h2>${p.name}</h2>
+    <div class="sub">${p.summary}</div>
+    <div class="meta">${meta}</div>
+    ${metrics}${paras}${hi}
+    <p style="margin-bottom:6px;color:var(--mut);font:600 11px/1 'JetBrains Mono',monospace;letter-spacing:1.5px;text-transform:uppercase">Stack</p>
+    <div class="stack">${(p.stack||[]).map(s=>`<span>${s}</span>`).join('')}</div>
+    ${caveat}${linkRow}
+  `);
+}
+
+(function buildFilters(){
+  const cats=['All',...(P.projectCategories||[])];
+  pf.innerHTML=cats.map((c,i)=>`<button data-cat="${c}"${i===0?' class="on"':''}>${c}<span style="opacity:.6"> ${c==='All'?P.projects.length:P.projects.filter(p=>p.category===c).length}</span></button>`).join('');
+  pf.querySelectorAll('button').forEach(b=>b.onclick=()=>{
+    pf.querySelectorAll('button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    renderProjects(b.dataset.cat);
+  });
+})();
+renderProjects('All');
 
 const ul=document.getElementById('pubsList');
 P.publications.forEach(p=>{

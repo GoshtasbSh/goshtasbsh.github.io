@@ -10,20 +10,8 @@ production/
 └── assets/
     ├── photo.jpeg          # Profile photo (used in nav chip + Profile section)
     ├── logo.jpg            # Used as favicon and OG card
-    └── cv.pdf              # PLACEHOLDER - replace with your real CV PDF before deploying
+    └── cv.pdf              # your CV (currently the Jan 2026 version)
 ```
-
----
-
-## Before you push: upload your real CV PDF
-
-The "Download CV" button on the Profile section points to `assets/cv.pdf`. Replace the placeholder file with your real PDF:
-
-```bash
-cp /path/to/your/GoshtasbShahriariMehr_CV.pdf production/assets/cv.pdf
-```
-
-The file in `assets/cv.pdf` right now is a tiny placeholder — if you forget to replace it, the download button will give the viewer a broken file.
 
 ---
 
@@ -78,32 +66,59 @@ No rebuild step. Push and you are live.
 
 ---
 
-## Adding things you said are coming
+## Adding or editing a project
 
-A few placeholders are wired up already. Just edit `shared/data.js`:
+Projects live in `shared/data.js` under `projects: [...]`. Every project renders as a card and
+opens a detail modal on click. Copy the shape of an existing entry:
 
-- **Project dashboards** — find a project (e.g. GeoChatBot) and replace `dashboardUrl: "#dashboard-coming-soon"` with your Vercel URL. The "View Dashboard" button activates automatically.
-- **Paper PDFs** — find a publication and replace `pdfUrl: "#pdf-coming-soon"` with the PDF URL. The "PDF ↓" button activates.
+```js
+{
+  key: "unique-slug",              // used by the modal, must be unique
+  name: "Project Name",
+  tag: "Short descriptor",         // shown above the title
+  category: "AI / LLM",            // must match one of `projectCategories` (drives the filter chips)
+  year: "2026",
+  status: "Live - open source",    // a status containing live/deployed/playable gets the bright pill
+  role: "Sole developer",
+  summary: "Two or three sentences. This is the card text.",
+  detail: ["Modal paragraph 1.", "Modal paragraph 2."],
+  highlights: ["Bullet 1", "Bullet 2"],
+  metrics: [{ k: "Tests", v: "800+" }],   // 2-4 of these; shown on the card AND in the modal
+  stack: ["TypeScript", "DuckDB-WASM"],   // first 6 show on the card, all show in the modal
+  url: "https://github.com/...",          // null if there is no public repo
+  demoUrl: "https://...",                 // null if nothing is deployed
+  demoLabel: "Live demo",
+  links: [{ label: "Docs", url: "https://..." }],   // optional extra links
+  note: "Honest scope caveat.",           // optional; renders as an amber 'Scope note' block
+  featured: true
+}
+```
 
-You can also add lab websites or new affiliations the same way — copy the shape of an existing entry.
+If `url` and `demoUrl` are both null, the modal shows "Code available on request" instead of link
+buttons. To add a new filter category, add it to `projectCategories` and use it as a `category`.
+
+Other things worth knowing:
+
+- `heroStats` drives the four numbers under the hero. Keep them honest - they are the first thing
+  a reader checks.
+- `bio` drives the Profile paragraphs (no longer hardcoded in `index.html`).
+- `interests` + `axisDetails` drive the Research axes cards and their modals. The `label` in
+  `interests` must exactly match the key in `axisDetails`.
+- Paper PDFs: set `pdfUrl` on a publication to activate its download button.
 
 ---
 
 ## What is in this build
 
-- **Hero auto-cycles 4 reels every 7 seconds** (pauses on hover):
-  1. Spatial path — 3D wireframe globe (zooms in and pans right after 2 s)
-  2. Machine Learning — embedding clusters morph: scatter → 6 clusters → Florida outline
-  3. Agent-Based Modeling — discrete agents flow on a network to food hubs and respawn
-  4. Agent AI + LLMs — a central LLM core with orbiting tool nodes; queries fire out and answers come back
-- **Top nav** — avatar chip (only photo at the top of the page), six section links, mobile hamburger
-- **Profile** — bio + the second photo + a **Download CV** button on the right
-- **Research axes** (7) — each is a glass card, click for the full record
-- **Education** (4 degrees) — each click opens a modal with thesis, advisor, status, highlights
-- **Affiliations** (3 labs) — each click opens a modal with role, project, and a link to the lab's UF site
-- **Projects** — every featured project has "View Code on GitHub"; GeoChatBot and Keystone also have "View Dashboard"
-- **Publications** — each has a PDF download button (placeholder until you upload PDFs)
-- **Mobile responsive** down to ~360 px; tested at 980 px and 640 px breakpoints
-- **Plain ASCII text** throughout so no characters render as boxes regardless of font
+- **Hero auto-cycles 4 reels every 7 seconds** (pauses on hover): spatial path, machine learning,
+  agent-based modeling, agent AI + LLMs. Hero stats come from `heroStats`.
+- **Profile** - bio from `data.js`, photo, and a Download CV button.
+- **Research axes** (8) - click any card for the full record.
+- **Education** (4 degrees) and **Affiliations** (3 labs) - click for a modal.
+- **Projects** (21) - filter chips by category, cards with metrics, click for a full technical
+  record with highlights, stack, scope caveats, and live/GitHub links.
+- **Publications** and **Teaching**.
+- Mobile responsive down to ~360 px; verified with zero horizontal overflow at 390 px.
+- Plain ASCII text throughout so nothing renders as boxes regardless of font.
 
-Everything else (Three.js, fonts) loads from a CDN. No build step. No node_modules. One HTML, one JS data file, three asset files.
+Everything else (Three.js, fonts) loads from a CDN. No build step. No node_modules.
