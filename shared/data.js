@@ -323,8 +323,8 @@ window.PROFILE = {
       ],
       stack: ["Python", "FastAPI", "Vercel Serverless", "Supabase / PostgreSQL", "GeoPandas", "Shapely", "pyproj", "MapLibre GL JS", "Chart.js", "PWA / Service Workers", "Groq Llama 3.3"],
       url: "https://github.com/GoshtasbSh/Keystone_Project_Survey",
-      demoUrl: "https://keystone-project-survey.vercel.app",
-      demoLabel: "Open the platform",
+      demoUrl: "https://keystone-project-survey.vercel.app/static/index.html",
+      demoLabel: "Open the dashboard",
       note:
         "Risk scores shipped are provisional pending the PI's ratification of the scientific weighting; the engineering is audited and live.",
       featured: true,
