@@ -70,9 +70,10 @@
     hero.insertAdjacentHTML('afterbegin', '<svg class="hero-viz" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice" aria-hidden="true"></svg>');
     const vizEl = $('.hero-viz', hero);
     let index = 0, timer;
+    let autoplayEnabled = true;
     const schedule = () => {
       clearInterval(timer);
-      if (!reduced.matches && !document.hidden) timer = setInterval(() => paint(index + 1, false), 7000);
+      if (autoplayEnabled && !reduced.matches && !document.hidden) timer = setInterval(() => paint(index + 1, false), 7000);
     };
     const paint = (next, reset = true) => {
       index = (next + P.reels.length) % P.reels.length;
@@ -92,6 +93,21 @@
     };
     $$('[data-reel]', hero).forEach((b, i) => b.addEventListener('click', () => paint(i)));
     $('[data-next]', hero)?.addEventListener('click', () => paint(index + 1));
+
+    // explicit autoplay control: hovering is not available on touch
+    let autoplayOn = true;
+    const autoBtn = $('[data-autoplay]', hero);
+    const autoIcon = $('[data-autoplay-icon]', hero);
+    const setAutoplay = on => {
+      autoplayOn = on; autoplayEnabled = on;
+      autoBtn?.setAttribute('aria-pressed', String(on));
+      autoBtn?.setAttribute('aria-label', on ? 'Pause automatic story rotation' : 'Resume automatic story rotation');
+      if (autoIcon) autoIcon.textContent = on ? '\u275a\u275a' : '\u25b6';
+      on ? schedule() : clearInterval(timer);
+      try { localStorage.setItem('gsm-hero-autoplay', String(on)); } catch (e) { }
+    };
+    autoBtn?.addEventListener('click', () => setAutoplay(!autoplayOn));
+    try { if (localStorage.getItem('gsm-hero-autoplay') === 'false') setAutoplay(false); } catch (e) { }
     hero.addEventListener('pointerenter', () => clearInterval(timer));
     hero.addEventListener('pointerleave', schedule);
     hero.addEventListener('focusin', () => clearInterval(timer));

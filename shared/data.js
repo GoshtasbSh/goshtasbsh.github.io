@@ -595,7 +595,7 @@ window.PROFILE = {
    "tag": "Coastal infrastructure stakeholder priorities",
    "category": "Research",
    "year": "2026",
-   "status": "Live dashboard - MIT licensed",
+   "status": "Dashboard offline - MIT licensed",
    "role": "Sole developer",
    "summary": "A rigorous Bayesian and causal-inference re-analysis of a coastal-community infrastructure survey, replacing 195 univariate regressions with a coherent portfolio of seven modern statistical models - deployed as an interactive dashboard.",
    "detail": [
@@ -645,8 +645,8 @@ window.PROFILE = {
    ],
    "url": null,
    "demoUrl": "https://huggingface.co/spaces/Goshtasb/cedar-key-nep",
-   "demoLabel": "Open the dashboard",
-   "note": "Manuscript in preparation. A pre-publication forensic audit caught and corrected a circular-inference flaw. The analysis ranks places, not coordinates — there is no GIS code in this project.",
+   "demoLabel": "Hugging Face Space (currently offline)",
+   "note": "Manuscript in preparation. A pre-publication forensic audit caught and corrected a circular-inference flaw. The analysis ranks places, not coordinates - there is no GIS code in this project. The hosted Hugging Face Space is currently reporting a scheduling failure, so the link opens the Space rather than a running dashboard; the preview here was recorded from the same dashboard running locally.",
    "featured": false,
    "headline": "Residents rank the environment in their top three priorities — and give it 1% of the funding.",
    "media": "cedar-key"
@@ -1175,10 +1175,8 @@ window.PROFILE = {
    "year": 2024,
    "authors": "N. Soltani Nejad, R. Rastegar, G. Shahriari Mehr, F. Taheri Azad",
    "title": "Conceptualizing Tourist Journey: Qualitative Analysis of Tourist Experiences on TripAdvisor",
-   "venue": "Journal of Quality Assurance in Hospitality & Tourism",
-   "doi": null,
-   "link": "https://scholar.google.com/citations?user=Bruj7TQAAAAJ&hl=en",
-   "linkLabel": "On Google Scholar",
+   "venue": "Journal of Quality Assurance in Hospitality & Tourism, 25(2)",
+   "doi": "https://doi.org/10.1080/1528008X.2022.2124575",
    "pdfUrl": null,
    "openAccess": false,
    "tags": [
