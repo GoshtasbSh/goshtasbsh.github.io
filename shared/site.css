@@ -88,23 +88,29 @@ button,a{touch-action:manipulation}
   color:var(--accent-ink);font:650 .64rem var(--mono);text-transform:uppercase;letter-spacing:.06em;white-space:nowrap}
 
 /* ---------- hero ---------- */
-.hero{min-height:100svh;position:relative;display:grid;place-items:center;isolation:isolate;background:var(--paper);overflow:hidden}
+.hero{height:100vh;height:100svh;position:relative;display:grid;grid-template-rows:1fr auto;
+  isolation:isolate;background:var(--paper);overflow:hidden;
+  padding:calc(4.6rem + env(safe-area-inset-top)) 0 calc(1.3rem + env(safe-area-inset-bottom))}
 .hero::before{content:"";position:absolute;inset:0;background-image:var(--hero-image);background-size:cover;
   background-position:center;filter:saturate(.72);z-index:-2;transition:opacity .6s;animation:heroDrift 26s ease-in-out infinite alternate}
 .hero::after{content:"";position:absolute;inset:0;background:var(--veil);z-index:-1}
 @keyframes heroDrift{from{transform:scale(1.02)}to{transform:scale(1.1)}}
-.hero-center{text-align:center;width:min(92%,72rem);padding:9rem 0 12rem;position:relative;z-index:2}
-.hero-kicker{display:flex;justify-content:center;align-items:center;gap:.8rem;margin-bottom:1.8rem;flex-wrap:wrap;color:var(--reel-accent)}
+.hero-center{align-self:center;justify-self:center;text-align:center;width:min(92%,72rem);
+  padding:0;position:relative;z-index:2;display:flex;flex-direction:column;justify-content:center}
+.hero-kicker{display:flex;justify-content:center;align-items:center;gap:.8rem;margin-bottom:1.6rem;
+  flex-wrap:wrap;color:var(--reel-accent);min-height:1.3em}
 .hero-kicker .dot{width:.3rem;height:.3rem;border-radius:50%;background:currentColor}
-.hero h1{margin:0 auto;font-size:clamp(3.1rem,10vw,9.4rem);letter-spacing:-.07em;line-height:.8;font-weight:580;max-width:14ch}
+.hero h1{margin:0 auto;font-size:clamp(2.7rem,8.2vw,8.4rem);letter-spacing:-.07em;line-height:.82;
+  font-weight:580;max-width:14ch;min-height:1.64em;display:flex;flex-direction:column;justify-content:center}
 .hero h1 em{display:block;color:var(--reel-accent);font-style:normal;font-weight:320}
-.hero-lede{max-width:46rem;margin:2.2rem auto 0;font-size:clamp(1rem,1.3vw,1.22rem);line-height:1.62;
-  color:color-mix(in oklch,var(--ink) 90%,transparent)}
-.hero-chips{display:flex;justify-content:center;flex-wrap:wrap;gap:.5rem;margin-top:2rem}
+.hero-lede{max-width:46rem;margin:1.9rem auto 0;font-size:clamp(.98rem,1.2vw,1.18rem);line-height:1.6;
+  color:color-mix(in oklch,var(--ink) 90%,transparent);
+  min-height:calc(4 * 1.6em);display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.hero-chips{display:flex;justify-content:center;align-items:flex-start;flex-wrap:wrap;gap:.5rem;margin-top:1.7rem;min-height:4.4rem}
 .hero-chips span{border:1px solid var(--line-strong);background:color-mix(in oklch,var(--paper) 55%,transparent);
   padding:.5rem .75rem;font:650 .62rem var(--mono);text-transform:uppercase;letter-spacing:.06em;border-radius:1.4rem;
   backdrop-filter:blur(6px)}
-.hero-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:.7rem;margin-top:2.4rem}
+.hero-actions{display:flex;justify-content:center;flex-wrap:wrap;gap:.7rem;margin-top:1.9rem}
 .hero-actions a{padding:.95rem 1.3rem;border:1px solid var(--line-strong);font:650 .7rem var(--mono);
   text-transform:uppercase;letter-spacing:.07em;border-radius:2rem;backdrop-filter:blur(8px);
   background:color-mix(in oklch,var(--paper) 55%,transparent);transition:transform .2s,background .2s}
@@ -122,7 +128,7 @@ body[data-theme=dark] .hero-viz{mix-blend-mode:screen;opacity:.34}
 @keyframes dash{to{stroke-dashoffset:-210}}
 @keyframes agentPulse{50%{transform:scale(1.7);opacity:.4}}
 
-.reel-switcher{position:absolute;bottom:1.6rem;left:50%;transform:translateX(-50%);width:min(92%,75rem);z-index:3;
+.reel-switcher{position:relative;justify-self:center;width:min(92%,75rem);z-index:3;
   display:grid;grid-template-columns:auto 1fr auto;align-items:end;gap:1.5rem}
 .reel-nav{display:flex;gap:.35rem}
 .reel-nav button,.reel-arrow{background:color-mix(in oklch,var(--paper) 74%,transparent);border:1px solid var(--line-strong);
@@ -407,11 +413,13 @@ button.row:hover .open,button.row:focus-visible .open{opacity:1}
 }
 @media(max-width:760px){
   :root{--gutter:1.25rem}
-  .hero-center{padding:7.5rem 0 11rem}
-  .hero h1{line-height:.86;letter-spacing:-.055em}
-  .hero-lede{font-size:1rem;line-height:1.6}
+  .hero{padding:calc(4.2rem + env(safe-area-inset-top)) 0 calc(1rem + env(safe-area-inset-bottom))}
+  .hero h1{line-height:.88;letter-spacing:-.055em;min-height:1.76em}
+  .hero-lede{font-size:.98rem;line-height:1.58;margin-top:1.5rem;
+    -webkit-line-clamp:5;min-height:calc(5 * 1.58em)}
   .hero-chips{display:none}
-  .reel-switcher{grid-template-columns:1fr auto;gap:.9rem;bottom:1.1rem}
+  .hero-actions{margin-top:1.6rem}
+  .reel-switcher{grid-template-columns:1fr auto;gap:.8rem}
   .reel-nav{grid-column:1/-1;justify-content:center}
   .reel-status strong{font-size:.7rem}
   .section-head{display:block}
@@ -429,8 +437,8 @@ button.row:hover .open,button.row:focus-visible .open{opacity:1}
 @media(max-width:520px){
   .brand span{font-size:.58rem}
   .topbar{width:calc(100% - 1.5rem);top:.6rem}
-  .hero h1{font-size:clamp(2.6rem,12vw,4rem)}
-  .hero-lede{display:-webkit-box;-webkit-line-clamp:5;-webkit-box-orient:vertical;overflow:hidden}
+  .hero h1{font-size:clamp(2.3rem,10.5vw,3.6rem)}
+  .hero-kicker{font-size:.6rem;margin-bottom:1.2rem}
   .reel-arrow{width:2.6rem;height:2.6rem}
   .reel-nav button{width:2.2rem;height:2.2rem}
   .project-copy{padding:1.1rem}
@@ -453,4 +461,24 @@ button.row:hover .open,button.row:focus-visible .open{opacity:1}
 
 @media(max-width:400px){
   .brand span{display:none}
+}
+
+/* Short viewports: the hero still fills exactly one screen, so trim the
+   reserved slots instead of letting the switcher fall off the bottom. */
+@media(max-height:760px) and (min-width:761px){
+  .hero h1{font-size:clamp(2.4rem,6vw,5.2rem)}
+  .hero-lede{-webkit-line-clamp:3;min-height:calc(3 * 1.6em);margin-top:1.4rem}
+  .hero-chips{min-height:2.3rem;margin-top:1.2rem}
+  .hero-chips span:nth-child(n+4){display:none}
+  .hero-actions{margin-top:1.4rem}
+}
+@media(max-height:620px){
+  .hero-chips{display:none}
+  .hero-kicker{margin-bottom:1rem;min-height:1.2em}
+  .hero h1{font-size:clamp(2rem,5.2vw,3.4rem);min-height:1.7em}
+  .hero-lede{-webkit-line-clamp:2;min-height:calc(2 * 1.55em);margin-top:1rem;font-size:.94rem}
+  .hero-actions{margin-top:1.1rem}
+  .hero-actions a{padding:.7rem 1rem;font-size:.62rem}
+  .reel-arrow{width:2.5rem;height:2.5rem}
+  .reel-nav button{width:2.2rem;height:2.2rem}
 }
