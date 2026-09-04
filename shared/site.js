@@ -107,10 +107,13 @@
 
   set('#bio', P.bio.map(x => `<p>${esc(x)}</p>`).join(''));
 
+  // LinkedIn headline, split so the credential line reads as its own tier
+  set('#headline', `${esc(P.headlineShort)}<span class="sep">·</span>${esc(P.headlineTools)}<br><em>${esc(P.headlineCreds)}</em>`);
+
   set('#profile-facts', [
     ['Now', `${esc(P.currentRole.role)}, ${esc(P.currentRole.org)}`],
     ['Based in', esc(P.location)],
-    ['Doctorate', 'Defended August 2026'],
+    ['Doctorate', 'Defended 28 August 2026 · conferred Fall 2026'],
     ['Open to', 'ML / AI engineering · geospatial data science']
   ].map(([k, v]) => `<div><dt>${k}</dt><dd>${v}</dd></div>`).join(''));
 
@@ -340,9 +343,9 @@
     compact.innerHTML = `
       <img src="${esc(P.photo)}" alt="Goshtasb Shahriari Mehr">
       <div>
-        <strong>${esc(P.name)}</strong>
-        <p>Ph.D. · ML / AI Engineer<br>Spatial Systems</p>
-        <small>LLM agents · GeoAI · Agent-based modeling · Full-stack</small>
+        <strong>${esc(P.displayName)}</strong>
+        <p>${esc(P.headlineShort)}</p>
+        <small>${esc(P.headlineTools)}<br>${esc(P.headlineCreds)}</small>
         <div class="compact-actions">
           <a href="${esc(P.cvUrl)}" download>Download CV</a>
           <a href="mailto:${esc(P.emails.personal)}">Email</a>

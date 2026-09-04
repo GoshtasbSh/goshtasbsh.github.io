@@ -1,8 +1,8 @@
 window.PROFILE = {
  "name": "Goshtasb Shahriari Mehr",
- "shortName": "Goshtasb Shahriari",
+ "shortName": "Goshtasb Shahriari Mehr",
  "initials": "GS",
- "title": "Ph.D. · ML / AI Engineer · Spatial Systems",
+ "title": "Data Scientist · Machine Learning & LLM Engineer · Geospatial AI",
  "tagline": "Spatial AI, built end to end.",
  "oneLine": "Ph.D. from the University of Florida, building working AI-and-spatial systems end to end — from agent-based simulation and geospatial analytics to production LLM/RAG and optimization software.",
  "photo": "assets/photo.jpeg",
@@ -50,7 +50,7 @@ window.PROFILE = {
    "skills": [
     "B.Sc. — Geomatics — K. N. Toosi",
     "M.Sc. — GIS — University of Tehran",
-    "M.Sc. — ECE / AI — University of Florida",
+    "M.Sc. — Computer Engineering — University of Florida",
     "Ph.D. — Urban & Regional Planning — UF"
    ],
    "color": "#9bc6ff"
@@ -105,7 +105,7 @@ window.PROFILE = {
   }
  ],
  "bio": [
-  "I am an ML / AI engineer with a spatial background. In August 2026 I successfully defended my Ph.D. in Urban and Regional Planning at the University of Florida, and I hold a second M.Sc. in Electrical and Computer Engineering (Artificial Intelligence) from UF, taken alongside the Ph.D. to bring modern machine learning, computer vision, and LLM / agent-AI methods into the urban-analytics work.",
+  "I am an ML / AI engineer with a spatial background. In August 2026 I successfully defended my Ph.D. in Urban and Regional Planning at the University of Florida, and I hold a second M.Sc. in Computer Engineering from UF, taken alongside the Ph.D. to bring modern machine learning, computer vision, and LLM / agent-AI methods into the urban-analytics work.",
   "What I actually do is build systems. Over the last two years I have shipped a browser-native LLM agent for spatial analysis (GeoChatBot), a FERPA-safe on-premise AI email assistant with a LangGraph multi-agent pipeline (Local Glean), two production geospatial research platforms (KeyStone Heights and FieldSurvey), a construction-scheduling optimizer on OR-Tools CP-SAT (Proxima), and a Bayesian re-analysis of a coastal-community survey — mostly solo, all with real test suites and formal security or pre-publication audits.",
   "My dissertation evaluates food-access interventions in Jacksonville Health Zone 1 with a calibrated agent-based model, then re-implements it as a generative ABM where each household's decision is made by an LLM with episodic and social memory. I am now a Research Assistant and Web Developer at UF's Shimberg Center for Housing Studies, and a researcher in UF's FIBER institute and its DTSC Lab."
  ],
@@ -178,10 +178,10 @@ window.PROFILE = {
    "note": "Successfully defended 28 August 2026; degree conferred Fall 2026. Dissertation: a generative and rule-based agent-based model of urban food access in Health Zone 1, Jacksonville, FL."
   },
   {
-   "degree": "M.Sc., Electrical & Computer Engineering (AI)",
+   "degree": "M.Sc., Computer Engineering",
    "school": "University of Florida",
    "years": "2023 – 2025",
-   "note": "Dual degree taken alongside the Ph.D. GPA 3.8 / 4.0. Plus a UF Graduate Certificate in Machine Learning (ECE, 2023–2024)."
+   "note": "Taken alongside the Ph.D. at UF. GPA 3.8 / 4.0. Plus a UF Graduate Certificate in Machine Learning (ECE, 2023–2024)."
   },
   {
    "degree": "M.Sc., Geographic Information Science Engineering",
@@ -277,7 +277,7 @@ window.PROFILE = {
    "featured": true,
    "headline": "Ask your own spatial data a question. Nothing leaves the browser.",
    "media": "geochatbot",
-   "previewSource": "Recorded from the live public deployment: the product landing, the LLM evaluation leaderboard, and the running app."
+   "previewSource": "The project's own recorded demo: a plain-English question, the agent's numbered plan behind a human approval gate, then the NYC 311 complaints rendered on the map, coloured by borough."
   },
   {
    "key": "food-abm",
@@ -398,7 +398,7 @@ window.PROFILE = {
    "featured": true,
    "headline": "LLMs at the edges, classical operations research at the core.",
    "media": "proxima",
-   "previewSource": "Real production screens: the CP-SAT week optimizer reporting an optimal schedule, the task board, and invoicing."
+   "previewSource": "Real production screens plus the product design system: the CP-SAT week optimizer reporting an optimal schedule, the AI planner score, the critical-path Gantt, the task board, and the weather-gated Today console."
   },
   {
    "key": "keystone",
@@ -461,7 +461,7 @@ window.PROFILE = {
    "featured": true,
    "headline": "11,319 parcels, an offline field-survey PWA, and an LLM analyst that drives the map.",
    "media": "keystone",
-   "previewSource": "Real capture of the production dashboard console — parcel layers, risk tiers and the live field-visit map."
+   "previewSource": "Real captures of the production dashboard: the surveyed points on the parcel map, the status and top-streets charts with the Llama 3.3 70B analyst, the health and IAQ analysis tabs, and the per-street completion table."
   },
   {
    "key": "fieldsurvey",
@@ -1369,7 +1369,7 @@ window.PROFILE = {
   {
    "key": "msc-ece",
    "degree": "MSc",
-   "field": "Electrical & Computer Engineering (Artificial Intelligence)",
+   "field": "Computer Engineering",
    "school": "University of Florida",
    "city": "Gainesville, FL",
    "years": "Aug 2023 - Dec 2025",
@@ -1378,7 +1378,7 @@ window.PROFILE = {
    "advisor": null,
    "thesis": null,
    "certificateUrl": "assets/msc-ece-degree.pdf",
-   "blurb": "Dual degree pursued alongside the PhD to bring modern machine learning, computer vision, and LLM / agent-AI methods into the urban-analytics work. Capstones spanned pattern recognition, deep learning, and applied ML; the LLM line that followed became GeoChatBot, Local Glean, and the generative ABM.",
+   "blurb": "Dual degree pursued alongside the Ph.D. to bring modern machine learning, computer vision, and LLM / agent-AI methods into the urban-analytics work. Capstones spanned pattern recognition, deep learning, and applied ML; the LLM line that followed became GeoChatBot, Local Glean, and the generative ABM.",
    "highlights": [
     "Pattern Recognition - CIFAR-100 transfer learning for built-environment features (Fall 2024)",
     "Applied ML - flower classification (MobileNetV2 / Xception) + U-Net lung X-ray segmentation (Spring 2024)",
@@ -1799,5 +1799,10 @@ window.PROFILE = {
    "authors": "G. Shahriari Mehr et al.",
    "status": "In preparation"
   }
- ]
+ ],
+ "displayName": "Goshtasb Shahriari Mehr, Ph.D.",
+ "headline": "Data Scientist · Machine Learning & LLM Engineer · Geospatial AI | Python, RAG & Agents, PostGIS, PyTorch | Ph.D., University of Florida · M.Sc. Computer Engineering (UF)",
+ "headlineShort": "Data Scientist · ML & LLM Engineer · Geospatial AI",
+ "headlineTools": "Python · RAG & Agents · PostGIS · PyTorch",
+ "headlineCreds": "Ph.D., University of Florida · M.Sc. Computer Engineering (UF)"
 };
