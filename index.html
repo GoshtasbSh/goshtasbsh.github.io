@@ -1,1414 +1,251 @@
 <!doctype html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
-<title>Goshtasb Shahriari Mehr - ML / AI Engineer, Spatial Analytics</title>
-<meta name="description" content="ML / AI software engineer with a spatial background. LLM agents, agent-based simulation, and production geospatial platforms - GeoChatBot, Local Glean, KeyStone, FieldSurvey. PhD, University of Florida." />
-<meta name="author" content="Goshtasb Shahriari Mehr" />
-<link rel="icon" type="image/jpeg" href="assets/logo.jpg" />
-<link rel="apple-touch-icon" href="assets/logo.jpg" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Goshtasb Shahriari Mehr - ML / AI Engineer, Spatial Analytics" />
-<meta property="og:description" content="LLM agents, agent-based simulation, and production geospatial platforms. GeoChatBot, Local Glean, KeyStone, FieldSurvey - all live. PhD, University of Florida." />
-<meta property="og:image" content="assets/photo.jpeg" />
-<meta property="og:url" content="https://goshtasbsh.github.io/" />
-<meta name="twitter:card" content="summary_large_image" />
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --bg:#05070f; --bg-2:#0a0f1c; --fg:#dde6f5; --mut:#7d8aa1;
-    --c-path:#9bc6ff; --c-ml:#22d3ee; --c-abm:#ffba3b; --c-llm:#ff6dd9;
-    --accent:#22d3ee; --accent-2:#7c5cff;
-    --glass:rgba(255,255,255,.05); --glass-2:rgba(255,255,255,.10);
-    --line:rgba(34,211,238,.18);
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.6 "Plus Jakarta Sans",Inter,system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden;text-rendering:optimizeLegibility}
-  body{background:
-    radial-gradient(ellipse at 80% 0%,rgba(34,211,238,.14) 0,transparent 50%),
-    radial-gradient(ellipse at 0% 100%,rgba(124,92,255,.10) 0,transparent 50%),
-    var(--bg)}
-  a{color:inherit;text-decoration:none}
-  button{font-family:inherit}
-  ::selection{background:var(--accent);color:#0a0f1c}
-  img{max-width:100%;display:block}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Goshtasb Shahriari Mehr — Ph.D. · ML / AI Engineer · Spatial Systems</title>
+<meta name="description" content="Ph.D. (University of Florida) building working AI-and-spatial systems end to end — agent-based simulation, geospatial analytics, production LLM/RAG agents, and optimization software.">
+<meta name="author" content="Goshtasb Shahriari Mehr">
+<meta name="theme-color" content="#0b1017" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f3f1ec" media="(prefers-color-scheme: light)">
+<link rel="canonical" href="https://goshtasbsh.github.io/">
+<link rel="icon" href="assets/logo.jpg">
+<link rel="apple-touch-icon" href="assets/photo.jpeg">
 
-  .back{position:fixed;top:16px;left:16px;z-index:1000;background:var(--glass-2);color:var(--accent);padding:8px 14px;border-radius:999px;font:600 11px/1 "JetBrains Mono",monospace;border:1px solid var(--line);backdrop-filter:blur(14px);letter-spacing:1px}
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Goshtasb Shahriari Mehr — Ph.D. · ML / AI Engineer · Spatial Systems">
+<meta property="og:description" content="LLM agents, geospatial data science, and agent-based simulation — shipped as real software.">
+<meta property="og:url" content="https://goshtasbsh.github.io/">
+<meta property="og:image" content="https://goshtasbsh.github.io/assets/photo.jpeg">
+<meta name="twitter:card" content="summary_large_image">
 
-  /* ============ TOP NAV ============ */
-  .topnav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:1000;background:var(--glass-2);border:1px solid var(--line);border-radius:999px;padding:5px 6px 5px 5px;display:flex;gap:4px;backdrop-filter:blur(14px);align-items:center;max-width:calc(100vw - 120px)}
-  .topnav .avChip{display:flex;align-items:center;gap:8px;padding:0;margin-right:4px;border-right:1px solid var(--line);padding-right:10px}
-  .topnav .avChip img{width:32px;height:32px;border-radius:50%;object-fit:cover;border:1px solid rgba(255,255,255,.18)}
-  .topnav .avChip span{font:600 11px/1.2 "JetBrains Mono",monospace;letter-spacing:.5px;color:var(--fg);text-transform:uppercase;padding-right:4px}
-  .topnav .navlinks{display:flex;gap:4px}
-  .topnav a{font:600 12px/1 "JetBrains Mono",monospace;letter-spacing:1.2px;color:var(--mut);padding:9px 14px;border-radius:999px;white-space:nowrap}
-  .topnav a:hover{color:var(--fg);background:var(--glass-2)}
-  .menuBtn{display:none;background:transparent;border:0;color:var(--fg);font:600 11px/1 "JetBrains Mono",monospace;letter-spacing:1px;cursor:pointer;padding:9px 14px;border-radius:999px}
+<link rel="preload" href="shared/fonts/inter-tight-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="shared/img/coastal-fieldwork.webp" as="image">
+<link rel="stylesheet" href="shared/site.css">
 
-  /* ============ HERO ============ */
-  .stage{position:relative;min-height:100vh;height:100vh;min-height:680px;overflow:hidden}
-  .scene{position:absolute;inset:0;opacity:0;visibility:hidden;transition:opacity .9s cubic-bezier(.4,0,.2,1),visibility 0s .9s;pointer-events:none}
-  .scene.active{opacity:1;visibility:visible;pointer-events:auto;transition-delay:0s}
-  .scene canvas{position:absolute;inset:0;display:block;width:100%;height:100%}
-  /* Stronger dark overlay so text stays legible over any animation */
-  .stage::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,7,15,.55) 0,rgba(5,7,15,.05) 22%,rgba(5,7,15,.70) 70%,rgba(5,7,15,.90) 100%);pointer-events:none;z-index:2}
-  /* Extra left-side darkening behind the text to ensure contrast */
-  .stage::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(5,7,15,.78) 0,rgba(5,7,15,.55) 30%,transparent 60%);pointer-events:none;z-index:2}
-
-  .heroContent{position:absolute;inset:0;display:grid;grid-template-rows:auto 1fr auto;padding:104px 6vw 36px;pointer-events:none;z-index:3}
-
-  .heroState{justify-self:start;background:var(--glass-2);border:1px solid var(--line);border-radius:999px;padding:8px 14px;font:600 11px/1 "JetBrains Mono",monospace;letter-spacing:1.5px;text-transform:uppercase;display:flex;align-items:center;gap:10px;backdrop-filter:blur(14px);pointer-events:auto;transition:color .4s,border-color .4s;color:var(--c-path)}
-  .heroState .live{width:7px;height:7px;border-radius:50%;background:currentColor;box-shadow:0 0 10px currentColor}
-
-  .heroBody{display:flex;align-items:center;pointer-events:none}
-  .heroMain{max-width:760px;pointer-events:auto;position:relative;min-height:280px;width:100%}
-
-  /* Reel text panels */
-  .reelText{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:center;opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .6s cubic-bezier(.4,0,.2,1),transform .6s cubic-bezier(.4,0,.2,1),visibility 0s .6s;pointer-events:none}
-  .reelText.active{opacity:1;visibility:visible;transform:translateY(0);pointer-events:auto;transition-delay:0s}
-  .reelText .kicker{font:600 11px/1 "JetBrains Mono",monospace;letter-spacing:3px;text-transform:uppercase;margin-bottom:18px;display:flex;align-items:center;gap:10px}
-  .reelText .kicker::before{content:"";width:30px;height:1px;background:currentColor}
-  .reelText h1{font:700 72px/1.02 "Plus Jakarta Sans",sans-serif;margin:0;letter-spacing:-2px;color:var(--fg);text-shadow:0 2px 18px rgba(0,0,0,.4)}
-  /* SOLID colored italic em - no gradient/clip (was causing invisible text) */
-  .reelText h1 em{
-    font-family:"Instrument Serif", Georgia, "Times New Roman", serif;
-    font-style:italic;
-    font-weight:500;
-    font-size:72px;
-    line-height:1.02;
-    letter-spacing:-1px;
-    display:inline;
-    /* Color is set per-reel below */
-  }
-  .reelText p{font-size:17px;color:#e3eaf7;margin:22px 0 0;max-width:640px;line-height:1.55;text-shadow:0 1px 6px rgba(0,0,0,.45)}
-  .reelText .skills{display:flex;flex-wrap:wrap;gap:6px;margin-top:18px}
-  .reelText .skills span{font:600 11px/1 "JetBrains Mono",monospace;letter-spacing:1px;text-transform:uppercase;padding:6px 10px;border:1px solid var(--line);border-radius:6px;background:rgba(10,15,28,.7);backdrop-filter:blur(10px);color:var(--fg)}
-
-  /* Per-reel accent colors - applied to SOLID em text + kicker */
-  .reelText[data-reel="0"] h1 em{color:var(--c-path); text-shadow:0 0 24px rgba(155,198,255,.45), 0 2px 8px rgba(0,0,0,.4)}
-  .reelText[data-reel="0"] .kicker{color:var(--c-path)}
-  .reelText[data-reel="1"] h1 em{color:var(--c-ml);   text-shadow:0 0 24px rgba(34,211,238,.45), 0 2px 8px rgba(0,0,0,.4)}
-  .reelText[data-reel="1"] .kicker{color:var(--c-ml)}
-  .reelText[data-reel="2"] h1 em{color:var(--c-abm);  text-shadow:0 0 24px rgba(255,186,59,.45), 0 2px 8px rgba(0,0,0,.4)}
-  .reelText[data-reel="2"] .kicker{color:var(--c-abm)}
-  .reelText[data-reel="3"] h1 em{color:var(--c-llm);  text-shadow:0 0 24px rgba(255,109,217,.45), 0 2px 8px rgba(0,0,0,.4)}
-  .reelText[data-reel="3"] .kicker{color:var(--c-llm)}
-
-  /* Reel navigation: small dots, bottom-center of hero */
-  .reelNav{position:absolute;left:50%;bottom:140px;transform:translateX(-50%);display:flex;gap:10px;z-index:5;pointer-events:auto}
-  .reelNav .dot{width:32px;height:6px;border-radius:3px;background:rgba(255,255,255,.15);border:0;cursor:pointer;padding:0;position:relative;overflow:hidden;transition:background .25s}
-  .reelNav .dot:hover{background:rgba(255,255,255,.3)}
-  .reelNav .dot.active{background:rgba(255,255,255,.25)}
-  .reelNav .dot.active::after{content:"";position:absolute;inset:0;background:currentColor;border-radius:3px;animation:bar 7s linear forwards;transform-origin:left}
-  @keyframes bar{from{transform:scaleX(0)}to{transform:scaleX(1)}}
-  .reelNav .dot[data-reel="0"]{color:var(--c-path)}
-  .reelNav .dot[data-reel="1"]{color:var(--c-ml)}
-  .reelNav .dot[data-reel="2"]{color:var(--c-abm)}
-  .reelNav .dot[data-reel="3"]{color:var(--c-llm)}
-
-  /* Hero foot */
-  .heroFoot{display:flex;justify-content:space-between;align-items:flex-end;pointer-events:auto;gap:24px;flex-wrap:wrap}
-  .heroFoot .quickInfo{display:flex;gap:24px;font:600 11px/1.4 "JetBrains Mono",monospace;color:var(--mut);text-transform:uppercase;letter-spacing:1.5px;flex-wrap:wrap}
-  .heroFoot .quickInfo b{color:var(--fg);font-weight:600;display:block;margin-bottom:4px;font-size:13px;letter-spacing:1px}
-  .heroFoot .ctas{display:flex;gap:8px;flex-wrap:wrap}
-  .heroFoot .ctas a{font:600 12px/1 "JetBrains Mono",monospace;letter-spacing:1.5px;text-transform:uppercase;padding:12px 18px;border-radius:10px;background:rgba(10,15,28,.7);border:1px solid var(--line);backdrop-filter:blur(10px);transition:.2s;color:var(--fg)}
-  .heroFoot .ctas a.primary{background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#0a0f1c;border:0}
-  .heroFoot .ctas a:hover{transform:translateY(-2px)}
-
-  /* ============ SECTIONS ============ */
-  section{padding:120px 6vw;position:relative}
-  .secHead{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:48px;flex-wrap:wrap;gap:16px}
-  .secHead h2{margin:0;font:700 48px/1.05 "Plus Jakarta Sans",sans-serif;letter-spacing:-1.5px}
-  .secHead h2 em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:500;font-size:48px;color:var(--accent)}
-  .secHead .num{font:600 11px/1 "JetBrains Mono",monospace;color:var(--accent);letter-spacing:3px;text-transform:uppercase;margin-bottom:8px}
-  .secHead .deck{color:var(--mut);font-size:14px;max-width:380px;text-align:right}
-  .secHead .hint{font:500 11px/1 "JetBrains Mono",monospace;color:var(--c-llm);letter-spacing:1.5px;text-transform:uppercase;margin-top:8px}
-
-  .profile{display:grid;grid-template-columns:300px 1fr;gap:48px;align-items:start;background:var(--glass);border:1px solid var(--line);border-radius:24px;padding:36px;backdrop-filter:blur(20px)}
-  .profile .avatar{aspect-ratio:1;border-radius:20px;background:url('assets/photo.jpeg?v=bw1') center/cover;border:1px solid var(--line);position:relative;overflow:hidden}
-  .profile .avatar::after{content:"";position:absolute;inset:0;background:linear-gradient(135deg,transparent 60%,rgba(34,211,238,.20))}
-  .profile h3{font:600 32px/1.1 "Plus Jakarta Sans";margin:0 0 12px;letter-spacing:-1px}
-  .profile h3 em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:500;font-size:32px;color:var(--accent)}
-  .profile p{font-size:16px;line-height:1.6;color:#dde6f5;margin:0 0 12px}
-  .profile .badges{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
-  .profile .badges span{font:600 11px/1 "JetBrains Mono",monospace;color:var(--accent);letter-spacing:1px;text-transform:uppercase;background:rgba(34,211,238,.08);border:1px solid var(--line);padding:6px 10px;border-radius:6px}
-  .profile .cvRow{display:flex;justify-content:flex-end;margin-top:28px;padding-top:20px;border-top:1px solid var(--line)}
-  .profile .cvBtn{font:600 12px/1 "JetBrains Mono",monospace;letter-spacing:1.5px;text-transform:uppercase;padding:14px 22px;border-radius:12px;background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#0a0f1c;border:0;display:inline-flex;align-items:center;gap:10px;transition:.2s;cursor:pointer;text-decoration:none}
-  .profile .cvBtn:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(34,211,238,.3)}
-  .profile .cvBtn span{font-size:14px;line-height:1}
-
-  .glassgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px}
-  .glassgrid .gc{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:24px;backdrop-filter:blur(20px);transition:.25s;position:relative;overflow:hidden;cursor:pointer;text-align:left;color:inherit;font:inherit;display:block;width:100%}
-  .glassgrid .gc::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.06),transparent 50%);pointer-events:none}
-  .glassgrid .gc:hover{transform:translateY(-4px);border-color:var(--accent)}
-  .glassgrid .gc b{display:block;font:600 19px/1.2 "Plus Jakarta Sans";margin-bottom:6px}
-  .glassgrid .gc span{color:var(--mut);font-size:13px;display:block}
-  .glassgrid .gc .meta{font:600 10px/1.2 "JetBrains Mono",monospace;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;margin-bottom:8px}
-  .glassgrid .gc .more{font:600 10px/1 "JetBrains Mono",monospace;color:var(--c-llm);letter-spacing:1.5px;text-transform:uppercase;margin-top:10px;display:inline-block;border-bottom:1px solid var(--c-llm);padding-bottom:2px}
-
-  .degGrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px}
-  .degGrid .deg{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:24px;backdrop-filter:blur(20px);transition:.25s;position:relative;overflow:hidden;cursor:pointer;text-align:left;color:inherit;font:inherit;display:block;width:100%}
-  .degGrid .deg::after{content:"->";position:absolute;top:18px;right:20px;color:var(--mut);font:600 12px/1 "JetBrains Mono",monospace;letter-spacing:1px;opacity:.5;transition:.2s}
-  .degGrid .deg:hover{transform:translateY(-4px);border-color:var(--accent-2)}
-  .degGrid .deg:hover::after{opacity:1;color:var(--c-llm);transform:translate(4px,0)}
-  .degGrid .deg .badge{display:inline-block;font:700 11px/1 "JetBrains Mono",monospace;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase;background:rgba(34,211,238,.10);padding:5px 9px;border-radius:5px;margin-bottom:10px}
-  .degGrid .deg .badge.work{color:var(--c-abm);background:rgba(255,186,59,.10)}
-  .degGrid .deg b{display:block;font:600 19px/1.2 "Plus Jakarta Sans";margin-bottom:4px;letter-spacing:-.3px}
-  .degGrid .deg .school{color:var(--fg);font-size:13.5px;margin-bottom:8px;opacity:.85}
-  .degGrid .deg .yrs{font:500 12px/1 "JetBrains Mono",monospace;color:var(--mut);letter-spacing:.5px}
-
-  .projects{display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:18px}
-  .project{background:var(--glass);border:1px solid var(--line);border-radius:22px;padding:28px;backdrop-filter:blur(20px);position:relative;overflow:hidden;display:flex;flex-direction:column;gap:14px;transition:.25s}
-  .project::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 100% 0%,rgba(34,211,238,.12),transparent 60%);opacity:0;transition:.3s;pointer-events:none}
-  .project:hover::before{opacity:1}
-  .project:hover{transform:translateY(-4px);border-color:var(--accent)}
-  .project .ptag{font:600 11px/1 "JetBrains Mono",monospace;color:var(--accent);letter-spacing:1.5px;text-transform:uppercase}
-  .project h4{margin:0;font:700 24px/1.15 "Plus Jakarta Sans";letter-spacing:-.8px}
-  .project p{margin:0;color:#bccaee;font-size:14px;line-height:1.55;flex:1}
-  .project .stack{display:flex;flex-wrap:wrap;gap:6px}
-  .project .stack span{font:500 11px/1 "JetBrains Mono",monospace;color:var(--accent);border:1px solid var(--line);padding:5px 9px;border-radius:6px;background:rgba(34,211,238,.06)}
-  .project .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:4px}
-  .project .actions a{font:600 11px/1 "JetBrains Mono",monospace;letter-spacing:1px;text-transform:uppercase;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:var(--glass-2);color:var(--fg);transition:.2s;text-decoration:none}
-  .project .actions a.primary{background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#0a0f1c;border:0}
-  .project .actions a:hover{transform:translateY(-2px)}
-  .project.clickable{cursor:pointer;text-align:left;font:inherit;color:inherit;width:100%}
-  .project .ptop{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
-  .project .pstatus{font:600 10px/1 "JetBrains Mono",monospace;letter-spacing:1px;text-transform:uppercase;color:#0a0f1c;background:linear-gradient(120deg,var(--accent),var(--accent-2));padding:6px 9px;border-radius:999px;white-space:nowrap;flex-shrink:0}
-  .project .pstatus.muted{background:none;color:var(--mut);border:1px solid rgba(125,138,161,.35)}
-  .pmetrics{display:flex;flex-wrap:wrap;gap:16px;padding:12px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-  .pmetrics div{font:500 10px/1.3 "JetBrains Mono",monospace;color:var(--mut);letter-spacing:1px;text-transform:uppercase}
-  .pmetrics div b{display:block;font:700 15px/1.2 "Plus Jakarta Sans";color:var(--fg);letter-spacing:-.3px;text-transform:none;margin-bottom:2px}
-  .project .pmore{font:600 11px/1 "JetBrains Mono",monospace;color:var(--c-llm);letter-spacing:1.5px;text-transform:uppercase}
-
-  .filters{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
-  .filters button{font:600 11px/1 "JetBrains Mono",monospace;letter-spacing:1.2px;text-transform:uppercase;padding:10px 14px;border-radius:999px;border:1px solid var(--line);background:var(--glass);color:var(--mut);cursor:pointer;transition:.2s}
-  .filters button:hover{color:var(--fg);border-color:var(--accent)}
-  .filters button.on{background:linear-gradient(120deg,var(--accent),var(--accent-2));color:#0a0f1c;border-color:transparent}
-  .modal .caveat{border-left:2px solid var(--c-abm);background:rgba(255,186,59,.07);padding:12px 14px;border-radius:0 10px 10px 0;color:#e4d3ae;font-size:13.5px;line-height:1.5;margin:16px 0 4px}
-  .modal .caveat b{display:block;font:600 10px/1 "JetBrains Mono",monospace;letter-spacing:1.5px;text-transform:uppercase;color:var(--c-abm);margin-bottom:6px}
-  .modal .linkRow{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
-
-  .pubs{display:flex;flex-direction:column;gap:14px}
-  .pub{background:var(--glass);border:1px solid var(--line);border-radius:18px;padding:24px 28px;backdrop-filter:blur(20px);display:grid;grid-template-columns:80px 1fr auto;gap:24px;align-items:center}
-  .pub b{font:700 28px/1 "Plus Jakarta Sans";color:var(--accent);letter-spacing:-1px}
-  .pub h4{margin:0 0 4px;font:600 18px/1.3}
-  .pub .auth{color:var(--mut);font-size:13px;margin-bottom:6px}
-  .pub .ven{font:500 13px/1 "JetBrains Mono",monospace;color:var(--accent-2);letter-spacing:.5px}
-  .pub .pdfBtn{font:600 11px/1 "JetBrains Mono",monospace;letter-spacing:1px;text-transform:uppercase;padding:10px 14px;border-radius:10px;border:1px solid var(--line);background:var(--glass-2);color:var(--fg);transition:.2s;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
-  .pub .pdfBtn:hover{background:var(--accent);color:#0a0f1c;border-color:var(--accent)}
-  .pub .noPdf{font:500 10px/1.3 "JetBrains Mono",monospace;letter-spacing:1px;text-transform:uppercase;color:var(--mut);padding:8px 12px;border:1px dashed rgba(125,138,161,.4);border-radius:10px;max-width:140px;text-align:right}
-
-  .teach{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
-  .teach .tc{background:var(--glass);border:1px solid var(--line);border-radius:14px;padding:20px;backdrop-filter:blur(20px)}
-  .teach .tc b{display:block;font:600 17px/1.2 "Plus Jakarta Sans";margin-bottom:6px}
-  .teach .tc span{color:var(--mut);font-size:13px}
-
-  footer{padding:36px 6vw 28px;border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:18px;color:var(--mut);font:600 11px/1.5 "JetBrains Mono",monospace;letter-spacing:1.2px;text-transform:uppercase}
-  footer .left{display:flex;gap:6px;align-items:center;flex-wrap:wrap}
-  footer .left a{color:var(--accent);border-bottom:1px dashed rgba(34,211,238,.4);padding-bottom:1px}
-  footer .left a:hover{color:var(--fg);border-color:var(--fg)}
-  footer .left .sep{color:var(--mut);opacity:.5}
-  footer .right a:hover{color:var(--accent)}
-  footer .right{display:flex;gap:14px;flex-wrap:wrap}
-
-  /* ============ MODAL ============ */
-  .modal{position:fixed;inset:0;z-index:5000;display:none;align-items:center;justify-content:center;padding:24px;background:rgba(5,7,15,.75);backdrop-filter:blur(10px)}
-  .modal.open{display:flex;animation:fade .25s ease}
-  @keyframes fade{from{opacity:0}to{opacity:1}}
-  .modal .card{position:relative;max-width:640px;width:100%;max-height:88vh;overflow:auto;background:linear-gradient(180deg,rgba(34,211,238,.10),var(--bg-2));border:1px solid var(--line);border-radius:24px;padding:36px 36px 32px;backdrop-filter:blur(30px);box-shadow:0 30px 80px rgba(0,0,0,.5);animation:up .3s cubic-bezier(.2,.7,.2,1)}
-  @keyframes up{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
-  .modal .x{position:absolute;top:18px;right:20px;width:38px;height:38px;border-radius:50%;background:var(--glass-2);border:1px solid var(--line);color:var(--fg);font:600 18px/1 "Plus Jakarta Sans";cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.2s}
-  .modal .x:hover{background:var(--c-abm);border-color:var(--c-abm);color:#1a1006}
-  .modal .badge{display:inline-block;font:700 11px/1 "JetBrains Mono",monospace;color:var(--accent);letter-spacing:2px;text-transform:uppercase;background:rgba(34,211,238,.10);padding:6px 10px;border-radius:6px;margin-bottom:14px}
-  .modal h2{margin:0 0 4px;font:700 30px/1.1 "Plus Jakarta Sans";letter-spacing:-1px}
-  .modal h2 em{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:500;font-size:30px;color:var(--accent)}
-  .modal .sub{color:var(--mut);font-size:14px;margin-bottom:20px}
-  .modal .meta{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;padding:14px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:18px}
-  .modal .meta div{font:500 11px/1.4 "JetBrains Mono",monospace;color:var(--mut);letter-spacing:1px;text-transform:uppercase}
-  .modal .meta div b{display:block;color:var(--fg);font-weight:600;font-size:13.5px;letter-spacing:.5px;text-transform:none;margin-bottom:2px;font-family:"Plus Jakarta Sans"}
-  .modal .thesis{font-family:"Instrument Serif",Georgia,serif;font-style:italic;font-weight:500;font-size:17px;line-height:1.4;color:#dde6f5;margin:0 0 14px;padding:10px 14px;border-left:3px solid var(--accent);background:rgba(34,211,238,.06);border-radius:6px}
-  .modal p{font-size:15px;color:#dde6f5;line-height:1.55;margin:0 0 16px}
-  .modal ul{margin:0 0 16px;padding-left:18px;color:#bccaee;font-size:14px;line-height:1.6}
-  .modal ul li{margin-bottom:6px}
-  .modal .stack{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
-  .modal .stack span{font:500 11px/1 "JetBrains Mono",monospace;color:var(--accent);border:1px solid var(--line);padding:5px 9px;border-radius:6px;background:rgba(34,211,238,.06)}
-  .modal .timelineList{display:flex;flex-direction:column;gap:8px;margin-bottom:14px}
-  .modal .timelineList .row{display:grid;grid-template-columns:130px 1fr;gap:14px;padding:8px 0;border-top:1px dashed rgba(34,211,238,.15)}
-  .modal .timelineList .row:first-child{border-top:0}
-  .modal .timelineList .row b{font:600 12px/1.3 "JetBrains Mono",monospace;color:var(--c-abm);letter-spacing:1px;text-transform:uppercase;font-weight:600}
-  .modal .timelineList .row span{font-size:14px;line-height:1.5}
-  .modal .extLink{display:inline-flex;align-items:center;gap:8px;font:600 12px/1 "JetBrains Mono",monospace;letter-spacing:1.2px;text-transform:uppercase;color:var(--c-abm);padding:10px 14px;border:1px solid rgba(255,186,59,.3);background:rgba(255,186,59,.08);border-radius:10px;margin-top:6px;text-decoration:none;transition:.2s}
-  .modal .extLink:hover{background:var(--c-abm);color:#1a1006;border-color:var(--c-abm)}
-
-  /* ============ RESPONSIVE ============ */
-  @media (max-width: 980px){
-    .reelText h1, .reelText h1 em{font-size:54px;line-height:1.02}
-    .heroContent{padding:96px 5vw 28px}
-    .reelNav{bottom:130px}
-    .secHead h2,.secHead h2 em{font-size:36px}
-    .profile{grid-template-columns:200px 1fr;gap:28px;padding:28px}
-    .profile .cvRow{justify-content:flex-start}
-    .heroFoot .quickInfo{gap:14px}
-    .heroFoot .quickInfo > div{font-size:10px}
-    .heroFoot .quickInfo b{font-size:12px}
-    section{padding:80px 5vw}
-  }
-  @media (max-width: 640px){
-    .back{top:12px;left:12px;padding:7px 12px;font-size:10px}
-    .topnav{top:12px;padding:4px 6px 4px 4px;max-width:calc(100vw - 100px)}
-    .topnav .avChip{padding-right:8px;margin-right:2px}
-    .topnav .avChip img{width:28px;height:28px}
-    .topnav .avChip span{font-size:10px;display:none}
-    .topnav .navlinks{display:none;position:absolute;top:100%;right:0;margin-top:8px;background:var(--bg-2);border:1px solid var(--line);border-radius:16px;padding:8px;flex-direction:column;backdrop-filter:blur(20px);min-width:180px;box-shadow:0 24px 60px rgba(0,0,0,.6)}
-    .topnav .navlinks.open{display:flex}
-    .topnav .navlinks a{padding:10px 14px;font-size:11px}
-    .menuBtn{display:inline-block}
-    .stage{min-height:auto;height:auto;padding-bottom:32px}
-    .heroContent{position:relative;inset:auto;padding:80px 5vw 24px}
-    .heroState{font-size:10px;padding:7px 12px}
-    .heroBody{padding:20px 0;align-items:flex-start}
-    .heroMain{min-height:320px}
-    .reelText{justify-content:flex-start;padding-top:0}
-    .reelText h1, .reelText h1 em{font-size:38px;letter-spacing:-1px;line-height:1.05}
-    .reelText .kicker{display:none}
-    .reelText p{font-size:15px;margin-top:16px}
-    .reelText .skills span{font-size:10px;padding:5px 8px}
-    .reelNav{position:relative;left:auto;bottom:auto;transform:none;margin:16px auto 8px;justify-content:center;gap:8px}
-    .reelNav .dot{width:28px;height:5px}
-    .heroFoot{flex-direction:column;align-items:stretch;gap:14px}
-    .heroFoot .quickInfo{justify-content:space-between}
-    .heroFoot .quickInfo > div{flex:1;min-width:0;font-size:9px}
-    .heroFoot .ctas{flex-direction:column}
-    .heroFoot .ctas a{width:100%;text-align:center}
-    section{padding:60px 5vw}
-    .secHead{flex-direction:column;align-items:flex-start;margin-bottom:32px}
-    .secHead h2,.secHead h2 em{font-size:30px;letter-spacing:-1px}
-    .secHead .deck{text-align:left}
-    .profile{grid-template-columns:1fr;gap:20px;padding:24px}
-    .profile .avatar{width:240px;max-width:100%;margin:0 auto}
-    .profile h3,.profile h3 em{font-size:26px}
-    .profile .cvRow{justify-content:center;padding-top:16px;margin-top:20px}
-    .profile .cvBtn{width:100%;justify-content:center;padding:14px 18px}
-    .glassgrid,.degGrid,.projects,.teach{grid-template-columns:1fr}
-    .pub{grid-template-columns:60px 1fr;gap:16px;padding:20px 22px}
-    .pub .pdfBtn,.pub .noPdf{grid-column:1 / -1;text-align:center;justify-self:start}
-    .modal{padding:12px}
-    .modal .card{padding:28px 22px 24px}
-    .modal h2,.modal h2 em{font-size:24px}
-    .modal .meta{grid-template-columns:1fr}
-    footer{flex-direction:column;align-items:flex-start;gap:14px;font-size:10px}
-  }
-</style>
-</head>
-<body>
-<nav class="topnav">
-  <div class="avChip"><img src="assets/photo.jpeg?v=bw1" alt="GS"/><span>GOSHTASB</span></div>
-  <button class="menuBtn" id="menuBtn" aria-label="Menu">MENU</button>
-  <div class="navlinks" id="navlinks">
-    <a href="#about">Profile</a><a href="#interests">Research</a><a href="#degrees">Education</a><a href="#affil">Affiliations</a><a href="#projects">Projects</a><a href="#pubs">Papers</a>
-  </div>
-</nav>
-
-<div class="stage" id="stage">
-  <div class="scene" data-reel="0" id="scene0"><canvas id="cnvGlobe"></canvas></div>
-  <div class="scene" data-reel="1" id="scene1"><canvas id="cnvEmbed"></canvas></div>
-  <div class="scene" data-reel="2" id="scene2"><canvas id="cnvAbm"></canvas></div>
-  <div class="scene" data-reel="3" id="scene3"><canvas id="cnvLlm"></canvas></div>
-
-  <div class="heroContent">
-    <div class="heroState" id="heroState"><span class="live"></span><span id="stateText">Reel 1 of 4 - Spatial path</span></div>
-
-    <div class="heroBody">
-      <div class="heroMain" id="heroMain"></div>
-    </div>
-
-    <div class="heroFoot">
-      <div class="quickInfo" id="quickInfo"></div>
-      <div class="ctas">
-        <a class="primary" href="mailto:g.shahriarimehr@ufl.edu">EMAIL &rarr;</a>
-        <a href="https://www.linkedin.com/in/goshtasb-shahriari-mehr-1826bb130/" target="_blank" rel="noopener">LINKEDIN</a>
-        <a href="https://github.com/GoshtasbSh" target="_blank" rel="noopener">GITHUB</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="reelNav" id="reelNav">
-    <button class="dot" data-reel="0" aria-label="Reel 1"></button>
-    <button class="dot" data-reel="1" aria-label="Reel 2"></button>
-    <button class="dot" data-reel="2" aria-label="Reel 3"></button>
-    <button class="dot" data-reel="3" aria-label="Reel 4"></button>
-  </div>
-</div>
-
-<section id="about">
-  <div class="secHead">
-    <div>
-      <div class="num">// 01 - Profile</div>
-      <h2>An engineer who <em>ships spatial AI.</em></h2>
-    </div>
-    <div class="deck">Geomatics, GIS, urban analytics, and machine learning - built into software that runs.</div>
-  </div>
-  <div class="profile">
-    <div class="avatar"></div>
-    <div>
-      <h3>Goshtasb <em>Shahriari Mehr</em></h3>
-      <div id="bioText"></div>
-      <div class="badges">
-        <span>UF - PhD (2026)</span><span>UF - MSc ECE (dual)</span><span>U Tehran - MSc GIS</span><span>KNTU - BSc Civil-Geomatics</span>
-      </div>
-      <div class="cvRow">
-        <a class="cvBtn" href="assets/cv.pdf" download>Download CV <span>&darr;</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="interests">
-  <div class="secHead">
-    <div>
-      <div class="num">// 02 - Research axes</div>
-      <h2>Seven methods, <em>one obsession.</em></h2>
-    </div>
-    <div>
-      <div class="deck">How people, places, and policy interact in space and time.</div>
-      <div class="hint">&darr; Click any axis for the record</div>
-    </div>
-  </div>
-  <div class="glassgrid" id="interestsGrid"></div>
-</section>
-
-<section id="degrees">
-  <div class="secHead">
-    <div>
-      <div class="num">// 03 - Education</div>
-      <h2>Four <em>degrees.</em></h2>
-    </div>
-    <div>
-      <div class="deck">From classical surveying to spatial machine learning.</div>
-      <div class="hint">&darr; Click any degree to open the full record</div>
-    </div>
-  </div>
-  <div class="degGrid" id="degreesGrid"></div>
-</section>
-
-<section id="affil">
-  <div class="secHead">
-    <div>
-      <div class="num">// 04 - Affiliations</div>
-      <h2>The <em>labs.</em></h2>
-    </div>
-    <div>
-      <div class="deck">Past and current research appointments.</div>
-      <div class="hint">&darr; Click any lab to see role and link</div>
-    </div>
-  </div>
-  <div class="degGrid" id="affilGrid"></div>
-</section>
-
-<section id="projects">
-  <div class="secHead">
-    <div>
-      <div class="num">// 05 - Shipping</div>
-      <h2>Things I have <em>built.</em></h2>
-    </div>
-    <div>
-      <div class="deck">Solo-built, tested, and where possible deployed. Five are live right now.</div>
-      <div class="hint">&darr; Click any project for the full technical record</div>
-    </div>
-  </div>
-  <div class="filters" id="projectFilters"></div>
-  <div class="projects" id="projectsGrid"></div>
-</section>
-
-<section id="pubs">
-  <div class="secHead">
-    <div>
-      <div class="num">// 06 - Writing</div>
-      <h2>Peer-reviewed <em>publications.</em></h2>
-    </div>
-    <div class="deck">PDF available for open-access papers. The 2024 paper is published in a closed-access journal.</div>
-  </div>
-  <div class="pubs" id="pubsList"></div>
-</section>
-
-<section id="teaching">
-  <div class="secHead">
-    <div>
-      <div class="num">// 07 - Teaching</div>
-      <h2>Courses I have helped <em>run.</em></h2>
-    </div>
-    <div class="deck">Graduate teaching assistantships at UF and the University of Tehran.</div>
-  </div>
-  <div class="teach" id="teachGrid"></div>
-</section>
-
-<footer>
-  <div class="left">
-    <a href="mailto:g.shahriarimehr@ufl.edu">g.shahriarimehr@ufl.edu</a>
-    <span class="sep">-</span>
-    <a href="mailto:goshtasbshahriari@gmail.com">goshtasbshahriari@gmail.com</a>
-  </div>
-  <div class="right">
-    <a href="https://github.com/GoshtasbSh" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://www.linkedin.com/in/goshtasb-shahriari-mehr-1826bb130/" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="https://scholar.google.com/citations?user=Bruj7TQAAAAJ&hl=en" target="_blank" rel="noopener">Scholar</a>
-    <a href="https://orcid.org/0000-0001-5867-9675" target="_blank" rel="noopener">ORCID</a>
-    <span class="sep">-</span>
-    <span>(c) 2026 - Gainesville, FL</span>
-  </div>
-</footer>
-
-<div class="modal" id="modal" role="dialog" aria-modal="true">
-  <div class="card"><button class="x" id="modalX" aria-label="Close">x</button><div id="modalBody"></div></div>
-</div>
-
-<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
-<script src="shared/data.js?v=20260727a"></script>
-<script>
-const P=window.PROFILE;
-const DPR=Math.min(window.devicePixelRatio||1,2);
-
-/* ========== Build reel text ========== */
-(function buildReelText(){
-  const m=document.getElementById('heroMain');
-  P.reels.forEach((r,i)=>{
-    const skills=(r.skills||[]).map(s=>`<span>${s}</span>`).join('');
-    m.insertAdjacentHTML('beforeend',
-      `<div class="reelText" data-reel="${i}">
-        <div class="kicker">${r.kicker}</div>
-        <h1>${r.title}<br/><em>${r.titleEm}</em></h1>
-        <p>${r.body}</p>
-        <div class="skills">${skills}</div>
-      </div>`);
-  });
-})();
-
-/* ========== Modal ========== */
-const modal=document.getElementById('modal'),body=document.getElementById('modalBody');
-const openModal=h=>{body.innerHTML=h;modal.classList.add('open');document.body.style.overflow='hidden'};
-const closeModal=()=>{modal.classList.remove('open');document.body.style.overflow=''};
-document.getElementById('modalX').onclick=closeModal;
-modal.addEventListener('click',e=>{if(e.target===modal)closeModal()});
-addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
-
-/* ========== Mobile menu ========== */
-const menuBtn=document.getElementById('menuBtn');
-const navlinks=document.getElementById('navlinks');
-menuBtn.onclick=()=>navlinks.classList.toggle('open');
-navlinks.addEventListener('click',e=>{if(e.target.tagName==='A')navlinks.classList.remove('open');});
-
-/* ========== Hero stats + bio (data-driven) ========== */
-(function buildHeroBits(){
-  const qi=document.getElementById('quickInfo');
-  (P.heroStats||[]).forEach(s=>qi.insertAdjacentHTML('beforeend',`<div><b>${s.n}</b>${s.k}</div>`));
-  const bt=document.getElementById('bioText');
-  (P.bio||[]).forEach(t=>bt.insertAdjacentHTML('beforeend',`<p>${t}</p>`));
-})();
-
-/* ========== Sections ========== */
-const ig=document.getElementById('interestsGrid');
-P.interests.forEach(i=>{
-  const det=P.axisDetails[i.label]||{};
-  ig.insertAdjacentHTML('beforeend',
-    `<button class="gc" data-axis="${i.label}"><div class="meta">${i.note}</div><b>${i.label}</b><span>${det.one||''}</span><span class="more">View record &rarr;</span></button>`);
-});
-document.querySelectorAll('[data-axis]').forEach(btn=>btn.onclick=()=>{
-  const k=btn.dataset.axis,d=P.axisDetails[k]||{};
-  openModal(`
-    <span class="badge">Research axis</span><h2>${k}</h2><div class="sub">${d.one||''}</div>
-    <p style="margin-bottom:6px"><b style="font-weight:600">Selected record</b></p>
-    <div class="timelineList">${(d.items||[]).map(it=>`<div class="row"><b>${it.year}</b><span>${it.what}</span></div>`).join('')}</div>
-    ${d.stack?`<p style="margin-bottom:6px;color:var(--mut);font:600 11px/1 'JetBrains Mono',monospace;letter-spacing:1.5px;text-transform:uppercase">Toolkit</p><div class="stack">${d.stack.map(s=>`<span>${s}</span>`).join('')}</div>`:''}
-  `);
-});
-
-const dg=document.getElementById('degreesGrid');
-P.degreesDetailed.forEach(d=>dg.insertAdjacentHTML('beforeend',
-  `<button class="deg" data-deg="${d.key}"><span class="badge">${d.degree}</span><b>${d.field}</b><div class="school">${d.school}</div><div class="yrs">${d.years}</div></button>`));
-document.querySelectorAll('[data-deg]').forEach(btn=>btn.onclick=()=>{
-  const d=P.degreesDetailed.find(x=>x.key===btn.dataset.deg);
-  openModal(`
-    <span class="badge">${d.degree} - Education</span><h2>${d.field}</h2>
-    <div class="sub">${d.school} - ${d.city}</div>
-    <div class="meta">
-      <div>Years<b>${d.years}</b></div>
-      <div>Status<b>${d.status}</b></div>
-      ${d.gpa?`<div>GPA<b>${d.gpa}</b></div>`:''}
-      ${d.advisor?`<div>Advisor / committee<b>${d.advisor}</b></div>`:''}
-    </div>
-    ${d.thesis?`<p class="thesis">${d.thesis}</p>`:''}
-    <p>${d.blurb}</p>
-    ${d.highlights?`<p style="margin-bottom:6px;color:var(--mut);font:600 11px/1 'JetBrains Mono',monospace;letter-spacing:1.5px;text-transform:uppercase">Highlights</p><ul>${d.highlights.map(h=>`<li>${h}</li>`).join('')}</ul>`:''}
-    ${d.certificateUrl?`<a class="extLink" href="${d.certificateUrl}" target="_blank" rel="noopener">View Degree Certificate &darr;</a>`:''}
-  `);
-});
-
-const af=document.getElementById('affilGrid');
-P.affiliationsDetailed.forEach(a=>af.insertAdjacentHTML('beforeend',
-  `<button class="deg" data-aff="${a.key}"><span class="badge work">${a.role}</span><b>${a.name}</b><div class="school">${a.full}<br/>${a.school}</div><div class="yrs">${a.years}${a.status?` - ${a.status}`:''}</div></button>`));
-document.querySelectorAll('[data-aff]').forEach(btn=>btn.onclick=()=>{
-  const a=P.affiliationsDetailed.find(x=>x.key===btn.dataset.aff);
-  openModal(`
-    <span class="badge">${a.role}</span><h2>${a.full}</h2>
-    <div class="sub">${a.school} - ${a.name}</div>
-    <div class="meta">
-      <div>Years<b>${a.years}</b></div>
-      ${a.status?`<div>Status<b>${a.status}</b></div>`:''}
-      ${a.advisor?`<div>Advisor / PI<b>${a.advisor}</b></div>`:''}
-      ${a.project?`<div>Project<b>${a.project}</b></div>`:''}
-    </div>
-    <p>${a.blurb}</p>
-    ${a.link?`<a class="extLink" href="${a.link}" target="_blank" rel="noopener">Open ${a.name} site &rarr;</a>`:''}
-  `);
-});
-
-/* ---- Projects: filter chips + cards + detail modal ---- */
-const pg=document.getElementById('projectsGrid');
-const pf=document.getElementById('projectFilters');
-const LIVE=/live|deployed|playable/i;
-
-function projectCard(p){
-  const live=LIVE.test(p.status||'');
-  const metrics=(p.metrics||[]).length
-    ? `<div class="pmetrics">${p.metrics.map(m=>`<div><b>${m.v}</b>${m.k}</div>`).join('')}</div>` : '';
-  const stack=(p.stack||[]).slice(0,6).map(s=>`<span>${s}</span>`).join('');
-  return `<button class="project clickable" data-proj="${p.key}" data-cat="${p.category}">
-      <div class="ptop">
-        <div class="ptag">${p.tag} - ${p.year}</div>
-        ${p.status?`<span class="pstatus${live?'':' muted'}">${p.status}</span>`:''}
-      </div>
-      <h4>${p.name}</h4>
-      <p>${p.summary}</p>
-      ${metrics}
-      <div class="stack">${stack}</div>
-      <div class="pmore">Open the record &rarr;</div>
-    </button>`;
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Goshtasb Shahriari Mehr",
+  "url": "https://goshtasbsh.github.io/",
+  "image": "https://goshtasbsh.github.io/assets/photo.jpeg",
+  "jobTitle": "Research Assistant & Web Developer",
+  "email": "mailto:goshtasbshahriari@gmail.com",
+  "address": { "@type": "PostalAddress", "addressLocality": "Gainesville", "addressRegion": "FL", "addressCountry": "USA" },
+  "worksFor": { "@type": "Organization", "name": "Shimberg Center for Housing Studies, University of Florida", "url": "https://shimberg.ufl.edu/" },
+  "alumniOf": [
+    { "@type": "CollegeOrUniversity", "name": "University of Florida" },
+    { "@type": "CollegeOrUniversity", "name": "University of Tehran" },
+    { "@type": "CollegeOrUniversity", "name": "K. N. Toosi University of Technology" }
+  ],
+  "knowsAbout": ["Agent-based modeling","Geospatial data science","LLM agents","Retrieval-augmented generation","Spatial statistics","Bayesian inference","Urban resilience","Discrete choice modeling","Optimization"],
+  "sameAs": [
+    "https://github.com/GoshtasbSh",
+    "https://www.linkedin.com/in/goshtasb-shahriari-mehr-1826bb130/",
+    "https://scholar.google.com/citations?user=Bruj7TQAAAAJ&hl=en",
+    "https://orcid.org/0000-0001-5867-9675"
+  ]
 }
-
-function renderProjects(cat){
-  const list=P.projects.filter(p=>cat==='All'?true:p.category===cat);
-  pg.innerHTML=list.map(projectCard).join('');
-  pg.querySelectorAll('[data-proj]').forEach(btn=>btn.onclick=()=>openProject(btn.dataset.proj));
-}
-
-function openProject(key){
-  const p=P.projects.find(x=>x.key===key);
-  if(!p)return;
-  const meta=[
-    `<div>Category<b>${p.category}</b></div>`,
-    `<div>Year<b>${p.year}</b></div>`,
-    p.role?`<div>Role<b>${p.role}</b></div>`:'',
-    p.status?`<div>Status<b>${p.status}</b></div>`:'',
-  ].join('');
-  const metrics=(p.metrics||[]).length
-    ? `<div class="pmetrics" style="margin-bottom:18px">${p.metrics.map(m=>`<div><b>${m.v}</b>${m.k}</div>`).join('')}</div>` : '';
-  const paras=(p.detail&&p.detail.length?p.detail:[p.summary]).map(t=>`<p>${t}</p>`).join('');
-  const hi=(p.highlights||[]).length
-    ? `<p style="margin-bottom:6px;color:var(--mut);font:600 11px/1 'JetBrains Mono',monospace;letter-spacing:1.5px;text-transform:uppercase">What it demonstrates</p><ul>${p.highlights.map(h=>`<li>${h}</li>`).join('')}</ul>` : '';
-  const caveat=p.note?`<div class="caveat"><b>Scope note</b>${p.note}</div>`:'';
-  const links=[
-    p.demoUrl?{label:p.demoLabel||'Open live',url:p.demoUrl}:null,
-    p.url?{label:'Code on GitHub',url:p.url}:null,
-    ...(p.links||[]),
-  ].filter(Boolean);
-  const linkRow=links.length
-    ? `<div class="linkRow">${links.map(l=>`<a class="extLink" href="${l.url}" target="_blank" rel="noopener">${l.label} &rarr;</a>`).join('')}</div>`
-    : `<div class="linkRow"><span class="extLink" style="opacity:.6;cursor:default">Code available on request</span></div>`;
-  openModal(`
-    <span class="badge">${p.tag}</span><h2>${p.name}</h2>
-    <div class="sub">${p.summary}</div>
-    <div class="meta">${meta}</div>
-    ${metrics}${paras}${hi}
-    <p style="margin-bottom:6px;color:var(--mut);font:600 11px/1 'JetBrains Mono',monospace;letter-spacing:1.5px;text-transform:uppercase">Stack</p>
-    <div class="stack">${(p.stack||[]).map(s=>`<span>${s}</span>`).join('')}</div>
-    ${caveat}${linkRow}
-  `);
-}
-
-(function buildFilters(){
-  const cats=['All',...(P.projectCategories||[])];
-  pf.innerHTML=cats.map((c,i)=>`<button data-cat="${c}"${i===0?' class="on"':''}>${c}<span style="opacity:.6"> ${c==='All'?P.projects.length:P.projects.filter(p=>p.category===c).length}</span></button>`).join('');
-  pf.querySelectorAll('button').forEach(b=>b.onclick=()=>{
-    pf.querySelectorAll('button').forEach(x=>x.classList.remove('on'));
-    b.classList.add('on');
-    renderProjects(b.dataset.cat);
-  });
-})();
-renderProjects('All');
-
-const ul=document.getElementById('pubsList');
-P.publications.forEach(p=>{
-  const pdf=p.pdfUrl?`<a class="pdfBtn" href="${p.pdfUrl}" target="_blank" rel="noopener">PDF <span style="margin-left:2px">&darr;</span></a>`:`<div class="noPdf">Closed access<br/>(no PDF)</div>`;
-  ul.insertAdjacentHTML('beforeend',
-    `<div class="pub"><b>${p.year}</b><div><h4>${p.title}</h4><div class="auth">${p.authors}</div><div class="ven">${p.venue}</div></div>${pdf}</div>`);
-});
-
-const tg=document.getElementById('teachGrid');
-P.teaching.forEach(t=>tg.insertAdjacentHTML('beforeend',`<div class="tc"><b>${t.course}</b><span>${t.school} - ${t.terms}</span></div>`));
-
-/* ========== Reel system ========== */
-let activeReel=0,autoTimer=null,paused=false;
-const REEL_MS=7000;
-
-function showReel(i){
-  activeReel=i;
-  document.querySelectorAll('.scene').forEach((s,k)=>s.classList.toggle('active',k===i));
-  document.querySelectorAll('.reelText').forEach((t,k)=>t.classList.toggle('active',k===i));
-  document.querySelectorAll('.reelNav .dot').forEach((c,k)=>c.classList.toggle('active',k===i));
-  const colors=['var(--c-path)','var(--c-ml)','var(--c-abm)','var(--c-llm)'];
-  document.getElementById('heroState').style.color=colors[i];
-  document.getElementById('stateText').textContent=`Reel ${i+1} of 4 - ${P.reels[i].label}`;
-  animators.forEach((a,k)=>k===i?a.play():a.pause());
-  const d=document.querySelectorAll('.reelNav .dot')[i];
-  d.classList.remove('active');void d.offsetWidth;d.classList.add('active');
-}
-function nextReel(){if(!paused)showReel((activeReel+1)%4);}
-function startAuto(){stopAuto();autoTimer=setInterval(nextReel,REEL_MS);}
-function stopAuto(){if(autoTimer){clearInterval(autoTimer);autoTimer=null;}}
-document.getElementById('stage').addEventListener('pointerenter',()=>{paused=true;stopAuto();});
-document.getElementById('stage').addEventListener('pointerleave',()=>{paused=false;startAuto();});
-document.querySelectorAll('.reelNav .dot').forEach(c=>c.onclick=()=>{showReel(+c.dataset.reel);startAuto();});
-
-class Animator{
-  constructor(setup,frame){this.setup=setup;this.frame=frame;this.running=false;this.raf=null;this.t=0;}
-  init(){this.state=this.setup();}
-  play(){if(this.running)return;this.running=true;const loop=()=>{if(!this.running)return;this.t++;this.frame(this.state,this.t);this.raf=requestAnimationFrame(loop);};loop();}
-  pause(){this.running=false;if(this.raf){cancelAnimationFrame(this.raf);this.raf=null;}}
-}
-
-/* ========== REEL 0 - Globe with continent dots + travelling arc particles ========== */
-const animGlobe=new Animator(()=>{
-  const cnv=document.getElementById('cnvGlobe');
-  const renderer=new THREE.WebGLRenderer({canvas:cnv,alpha:true,antialias:true});
-  renderer.setPixelRatio(DPR);
-  const scene=new THREE.Scene();
-  const camera=new THREE.PerspectiveCamera(45,1,.1,100);
-  // Wireframe sphere
-  const geo=new THREE.SphereGeometry(1,48,32);
-  const wire=new THREE.LineSegments(new THREE.WireframeGeometry(geo),new THREE.LineBasicMaterial({color:0x4d7fb8,transparent:true,opacity:.30}));
-  scene.add(wire);
-  const surf=new THREE.Mesh(geo,new THREE.MeshBasicMaterial({color:0x06101e,transparent:true,opacity:.95}));
-  scene.add(surf);
-  const glow=new THREE.Mesh(new THREE.SphereGeometry(1.10,32,24),new THREE.MeshBasicMaterial({color:0x7c5cff,transparent:true,opacity:.10,side:THREE.BackSide}));
-  scene.add(glow);
-  const group=new THREE.Group();
-  function ll(lat,lon,r=1.01){
-    const phi=(90-lat)*Math.PI/180,theta=(lon+180)*Math.PI/180;
-    return new THREE.Vector3(-r*Math.sin(phi)*Math.cos(theta),r*Math.cos(phi),r*Math.sin(phi)*Math.sin(theta));
-  }
-  // Continent dot field (very rough silhouettes via lat/lon polygons)
-  // Filled with a noise-like distribution of dots on landmass coords
-  const landRegions=[
-    // North America (rough)
-    {latMin:25,latMax:60,lonMin:-130,lonMax:-65,density:.35},
-    // South America
-    {latMin:-55,latMax:10,lonMin:-80,lonMax:-35,density:.30},
-    // Europe
-    {latMin:36,latMax:65,lonMin:-10,lonMax:40,density:.40},
-    // Africa
-    {latMin:-35,latMax:32,lonMin:-18,lonMax:50,density:.30},
-    // Middle East (incl Iran)
-    {latMin:12,latMax:42,lonMin:35,lonMax:75,density:.45},
-    // Asia
-    {latMin:5,latMax:60,lonMin:60,lonMax:140,density:.30},
-    // Australia
-    {latMin:-40,latMax:-12,lonMin:113,lonMax:155,density:.35},
-  ];
-  const dotGeo=new THREE.BufferGeometry();
-  const positions=[];
-  landRegions.forEach(r=>{
-    const count=Math.floor((r.latMax-r.latMin)*(r.lonMax-r.lonMin)*r.density*0.06);
-    for(let i=0;i<count;i++){
-      const lat=r.latMin+Math.random()*(r.latMax-r.latMin);
-      const lon=r.lonMin+Math.random()*(r.lonMax-r.lonMin);
-      const v=ll(lat,lon,1.005);
-      positions.push(v.x,v.y,v.z);
-    }
-  });
-  dotGeo.setAttribute('position',new THREE.Float32BufferAttribute(positions,3));
-  const dotMat=new THREE.PointsMaterial({color:0x9bc6ff,size:0.020,transparent:true,opacity:.85,sizeAttenuation:true});
-  const dots=new THREE.Points(dotGeo,dotMat);
-  group.add(dots);
-
-  const cities=[
-    {lat:35.69,lon:51.38,color:0x9bc6ff,name:'TEHRAN'},
-    {lat:29.65,lon:-82.32,color:0x7c5cff,name:'GAINESVILLE'},
-    {lat:30.32,lon:-81.66,color:0xffba3b,name:'JACKSONVILLE'},
-  ];
-  const halos=[];
-  cities.forEach(c=>{
-    const p=ll(c.lat,c.lon,1.005);
-    const dot=new THREE.Mesh(new THREE.SphereGeometry(.028,16,12),new THREE.MeshBasicMaterial({color:c.color}));
-    dot.position.copy(p);group.add(dot);
-    const halo=new THREE.Mesh(new THREE.SphereGeometry(.08,16,12),new THREE.MeshBasicMaterial({color:c.color,transparent:true,opacity:.35}));
-    halo.position.copy(p);group.add(halo);halos.push({m:halo,phase:Math.random()*Math.PI*2});
-  });
-  // Build arcs as quadratic-Bezier point arrays so we can move particles along them
-  function arcPoints(a,b,segs=80){
-    const v=new THREE.Vector3().addVectors(a,b).normalize().multiplyScalar(1.45);
-    return new THREE.QuadraticBezierCurve3(a,v,b).getPoints(segs);
-  }
-  function arcLine(pts,col){
-    const g=new THREE.BufferGeometry().setFromPoints(pts);
-    const l=new THREE.Line(g,new THREE.LineDashedMaterial({color:col,dashSize:.05,gapSize:.04,transparent:true,opacity:.65}));
-    l.computeLineDistances();
-    return l;
-  }
-  const arcs=[
-    {pts:arcPoints(ll(35.69,51.38),ll(29.65,-82.32)),col:0x9bc6ff,particles:[]},
-    {pts:arcPoints(ll(29.65,-82.32),ll(30.32,-81.66)),col:0xffba3b,particles:[]},
-    {pts:arcPoints(ll(35.69,51.38),ll(30.32,-81.66)),col:0xff6dd9,particles:[]},
-  ];
-  arcs.forEach(a=>{
-    group.add(arcLine(a.pts,a.col));
-    // Add 3 particles traveling along each arc at different phases
-    for(let i=0;i<3;i++){
-      const m=new THREE.Mesh(new THREE.SphereGeometry(.014,8,6),new THREE.MeshBasicMaterial({color:a.col}));
-      group.add(m);
-      a.particles.push({m,phase:i/3+Math.random()*0.1});
-    }
-  });
-  scene.add(group);
-  function resize(){
-    const w=cnv.clientWidth=cnv.parentElement.clientWidth,h=cnv.clientHeight=cnv.parentElement.clientHeight;
-    renderer.setSize(w,h,false);camera.aspect=w/h;camera.updateProjectionMatrix();
-  }
-  resize();addEventListener('resize',resize);
-  return {renderer,scene,camera,wire,surf,glow,group,halos,arcs,cnv};
-},(s,t)=>{
-  // Camera zoom + pan choreography
-  const startZoom=120,endZoom=320;
-  const u=Math.max(0,Math.min(1,(t-startZoom)/(endZoom-startZoom)));
-  const ease=u<.5?2*u*u:1-Math.pow(-2*u+2,2)/2;
-  const isNarrow=s.cnv.clientWidth<720;
-  const targetZ=isNarrow?3.4:2.4-0.5*ease;
-  const targetX=isNarrow?0:-0.9*ease;
-  s.camera.position.x+=(targetX-s.camera.position.x)*.05;
-  s.camera.position.y+=(0-s.camera.position.y)*.05;
-  s.camera.position.z+=(targetZ-s.camera.position.z)*.05;
-  s.camera.lookAt(0,0,0);
-  s.wire.rotation.y+=.0024;
-  s.surf.rotation.y=s.wire.rotation.y;
-  s.glow.rotation.y=s.wire.rotation.y;
-  s.group.rotation.y=s.wire.rotation.y;
-  s.halos.forEach(h=>{const k=1+.45*Math.sin(t*.03+h.phase);h.m.scale.set(k,k,k);});
-  // Travel particles along arcs
-  s.arcs.forEach(a=>{
-    a.particles.forEach(p=>{
-      p.phase=(p.phase+.005)%1;
-      const idx=Math.floor(p.phase*(a.pts.length-1));
-      const next=Math.min(idx+1,a.pts.length-1);
-      const localT=p.phase*(a.pts.length-1)-idx;
-      const x=a.pts[idx].x+(a.pts[next].x-a.pts[idx].x)*localT;
-      const y=a.pts[idx].y+(a.pts[next].y-a.pts[idx].y)*localT;
-      const z=a.pts[idx].z+(a.pts[next].z-a.pts[idx].z)*localT;
-      p.m.position.set(x,y,z);
-    });
-  });
-  s.renderer.render(s.scene,s.camera);
-});
-
-/* ========== REEL 1 - ML pipeline with phase labels ========== */
-const animEmbed=new Animator(()=>{
-  const cnv=document.getElementById('cnvEmbed');
-  const ctx=cnv.getContext('2d');
-  function resize(){const w=cnv.clientWidth=cnv.parentElement.clientWidth,h=cnv.clientHeight=cnv.parentElement.clientHeight;cnv.width=w*DPR;cnv.height=h*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);}
-  resize();addEventListener('resize',resize);
-  const COLORS=['#22d3ee','#7c5cff','#ffba3b','#ff6dd9','#5cffa1','#ff8a65'];
-  function W(){return cnv.clientWidth}function H(){return cnv.clientHeight}
-  const N=cnv.parentElement.clientWidth<640?300:560;
-  const pts=[];
-  for(let i=0;i<N;i++)pts.push({x:Math.random()*W(),y:Math.random()*H(),tx:0,ty:0,c:Math.floor(Math.random()*6),idx:i});
-  let phase=0,phaseT=0,boundaries=[];
-  function setPhase(p){
-    phase=p;phaseT=0;boundaries=[];
-    pts.forEach(pt=>{
-      let t;
-      if(p===0){t={x:Math.random()*W(),y:Math.random()*H()};}
-      else if(p===1){
-        const cx=W()*[.22,.78,.5,.32,.7,.5][pt.c],cy=H()*[.32,.32,.22,.7,.68,.78][pt.c];
-        t={x:cx+(Math.random()-.5)*W()*.07,y:cy+(Math.random()-.5)*H()*.07};
-      } else if(p===2){
-        const cx=W()*[.22,.78,.5,.32,.7,.5][pt.c],cy=H()*[.32,.32,.22,.7,.68,.78][pt.c];
-        t={x:cx+(Math.random()-.5)*W()*.05,y:cy+(Math.random()-.5)*H()*.05};
-      } else if(p===3){
-        // Predictions - all points migrate toward their cluster center exactly
-        const cx=W()*[.22,.78,.5,.32,.7,.5][pt.c],cy=H()*[.32,.32,.22,.7,.68,.78][pt.c];
-        t={x:cx+(Math.random()-.5)*W()*.04,y:cy+(Math.random()-.5)*H()*.04};
-      }
-      pt.tx=t.x;pt.ty=t.y;
-    });
-  }
-  setPhase(0);
-  return {ctx,pts,W,H,setPhase,COLORS,get _phase(){return phase},set _phase(v){phase=v},get _phaseT(){return phaseT},set _phaseT(v){phaseT=v}};
-},(s,t)=>{
-  const W=s.W(),H=s.H();
-  s.ctx.fillStyle='rgba(5,7,15,0.10)';s.ctx.fillRect(0,0,W,H);
-  // Decision boundaries during phase 2
-  if(s._phase===2){
-    s.ctx.strokeStyle='rgba(34,211,238,0.30)';
-    s.ctx.lineWidth=1.2;
-    // Draw 3 rough boundary curves between cluster regions
-    s.ctx.beginPath();
-    s.ctx.moveTo(W*.5,0);s.ctx.bezierCurveTo(W*.45,H*.3,W*.55,H*.45,W*.5,H);
-    s.ctx.stroke();
-    s.ctx.beginPath();
-    s.ctx.moveTo(0,H*.5);s.ctx.bezierCurveTo(W*.25,H*.45,W*.45,H*.55,W*.5,H*.5);
-    s.ctx.stroke();
-    s.ctx.beginPath();
-    s.ctx.moveTo(W*.5,H*.5);s.ctx.bezierCurveTo(W*.7,H*.45,W*.85,H*.55,W,H*.5);
-    s.ctx.stroke();
-  }
-  s.pts.forEach(p=>{
-    p.x+=(p.tx-p.x)*.04;p.y+=(p.ty-p.y)*.04;
-    s.ctx.fillStyle=s.COLORS[p.c];
-    s.ctx.globalAlpha=s._phase===0?.65:.9;
-    s.ctx.beginPath();s.ctx.arc(p.x,p.y,1.8,0,Math.PI*2);s.ctx.fill();
-    if(s._phase>=1){
-      s.ctx.globalAlpha=.18;s.ctx.beginPath();s.ctx.arc(p.x,p.y,4,0,Math.PI*2);s.ctx.fill();
-    }
-  });
-  s.ctx.globalAlpha=1;
-  s._phaseT=s._phaseT+1;
-  if(s._phase===0&&s._phaseT>120)s.setPhase(1);
-  else if(s._phase===1&&s._phaseT>180)s.setPhase(2);
-  else if(s._phase===2&&s._phaseT>180)s.setPhase(3);
-  else if(s._phase===3&&s._phaseT>160)s.setPhase(0);
-});
-
-/* ========== REEL 2 - GEOSPATIAL ABM (street network, BFS pathfinding, choropleth) ========== */
-const animAbm=new Animator(()=>{
-  const cnv=document.getElementById('cnvAbm');
-  const ctx=cnv.getContext('2d');
-  function W(){return cnv.clientWidth}function H(){return cnv.clientHeight}
-  function isNarrow(){return cnv.parentElement.clientWidth<640}
-  let nodes=[],edges=[],adj={},stores=[],agents=[],blocks=[],scenarioIdx=0,gridCols=8,gridRows=5,transitPath=null;
-  const SCENARIOS=['Baseline','Add transit line','Add new store'];
-  function buildNetwork(){
-    nodes=[];edges=[];adj={};
-    gridCols=isNarrow()?6:8; gridRows=isNarrow()?4:5;
-    const padX=W()*0.07, padY=H()*0.14;
-    const dx=(W()-2*padX)/(gridCols-1), dy=(H()-2*padY)/(gridRows-1);
-    for(let r=0;r<gridRows;r++) for(let c=0;c<gridCols;c++){
-      const id=r*gridCols+c;
-      nodes.push({x:padX+c*dx+(Math.random()-0.5)*9, y:padY+r*dy+(Math.random()-0.5)*9, id});
-      adj[id]=[];
-    }
-    function addEdge(a,b,isDiag){edges.push({a,b,diagonal:!!isDiag});adj[a].push(b);adj[b].push(a);}
-    // horizontal streets
-    for(let r=0;r<gridRows;r++) for(let c=0;c<gridCols-1;c++) addEdge(r*gridCols+c, r*gridCols+c+1, false);
-    // vertical streets
-    for(let r=0;r<gridRows-1;r++) for(let c=0;c<gridCols;c++) addEdge(r*gridCols+c, (r+1)*gridCols+c, false);
-    // a few diagonal shortcuts (give the city more character)
-    const diagCount=isNarrow()?2:4;
-    for(let i=0;i<diagCount;i++){
-      const r=Math.floor(Math.random()*(gridRows-1));
-      const c=Math.floor(Math.random()*(gridCols-1));
-      addEdge(r*gridCols+c, (r+1)*gridCols+c+1, true);
-    }
-  }
-  function buildBlocks(){
-    blocks=[];
-    for(let r=0;r<gridRows-1;r++) for(let c=0;c<gridCols-1;c++){
-      blocks.push({pts:[nodes[r*gridCols+c], nodes[r*gridCols+c+1], nodes[(r+1)*gridCols+c+1], nodes[(r+1)*gridCols+c]], access:0});
-    }
-  }
-  function buildStores(){
-    stores=[];
-    // Spread food stores across the network. Always 4. Scenario 2 adds a 5th.
-    const layout=[[1,1],[gridCols-2,1],[2,gridRows-2],[gridCols-3,gridRows-2]];
-    if(scenarioIdx===2) layout.push([Math.floor(gridCols/2), Math.floor(gridRows/2)]);
-    layout.forEach(([c,r])=>{
-      const cc=Math.min(c,gridCols-1), rr=Math.min(r,gridRows-1);
-      stores.push({node:rr*gridCols+cc, fed:0});
-    });
-  }
-  function bfsPath(start,end){
-    if(start===end) return [start];
-    const visited=new Set([start]);
-    const parent={};parent[start]=-1;
-    const queue=[start];
-    while(queue.length){
-      const n=queue.shift();
-      for(const nb of adj[n]){
-        if(visited.has(nb)) continue;
-        visited.add(nb); parent[nb]=n;
-        if(nb===end){
-          const path=[]; let cur=end;
-          while(cur!==-1){path.unshift(cur);cur=parent[cur];}
-          return path;
-        }
-        queue.push(nb);
-      }
-    }
-    return null;
-  }
-  function buildAgents(){
-    agents=[];
-    const N=isNarrow()?70:160;
-    for(let i=0;i<N;i++){
-      const homeId=Math.floor(Math.random()*nodes.length);
-      const tgtStore=stores[Math.floor(Math.random()*stores.length)];
-      const path=bfsPath(homeId, tgtStore.node)||[homeId];
-      agents.push({
-        from:path[0], to:path[Math.min(1,path.length-1)], t:0,
-        x:nodes[homeId].x, y:nodes[homeId].y,
-        target:tgtStore.node, path, pathIdx:0,
-        state:'travel', speed:0.011+Math.random()*0.009, pause:0
-      });
-    }
-  }
-  function computeAccess(){
-    const dmax=Math.hypot(W(),H())*0.32;
-    blocks.forEach(b=>{
-      const cx=(b.pts[0].x+b.pts[1].x+b.pts[2].x+b.pts[3].x)/4;
-      const cy=(b.pts[0].y+b.pts[1].y+b.pts[2].y+b.pts[3].y)/4;
-      let bd=1e9;
-      stores.forEach(st=>{const n=nodes[st.node]; const d=Math.hypot(n.x-cx,n.y-cy); if(d<bd) bd=d;});
-      b.access=Math.max(0, 1-bd/dmax);
-    });
-  }
-  function init(){
-    buildNetwork(); buildBlocks(); buildStores(); computeAccess(); buildAgents();
-    transitPath = (scenarioIdx===1 && stores.length>=2) ? bfsPath(stores[0].node, stores[stores.length-1].node) : null;
-  }
-  function resize(){const w=cnv.clientWidth=cnv.parentElement.clientWidth,h=cnv.clientHeight=cnv.parentElement.clientHeight;cnv.width=w*DPR;cnv.height=h*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);init();}
-  resize();addEventListener('resize',resize);
-  return {ctx,W,H,SCENARIOS,
-    get nodes(){return nodes}, get edges(){return edges}, get adj(){return adj},
-    get stores(){return stores}, get agents(){return agents}, get blocks(){return blocks},
-    get scenarioIdx(){return scenarioIdx}, set scenarioIdx(v){scenarioIdx=v},
-    get transitPath(){return transitPath},
-    init, bfsPath};
-},(s,t)=>{
-  const W=s.W(),H=s.H();
-  s.ctx.fillStyle='rgba(5,7,15,0.14)';s.ctx.fillRect(0,0,W,H);
-
-  // ---- Choropleth: blocks coloured by accessibility (cool = far, warm = close) ----
-  s.blocks.forEach(b=>{
-    const a=b.access;
-    const r=Math.round(40+a*215), g=Math.round(60+a*170), bl=Math.round(180-a*140);
-    s.ctx.fillStyle=`rgba(${r},${g},${bl},${0.08+a*0.14})`;
-    s.ctx.beginPath();
-    s.ctx.moveTo(b.pts[0].x,b.pts[0].y);
-    for(let i=1;i<4;i++) s.ctx.lineTo(b.pts[i].x,b.pts[i].y);
-    s.ctx.closePath();
-    s.ctx.fill();
-  });
-
-  // ---- Streets ----
-  s.edges.forEach(e=>{
-    const a=s.nodes[e.a], b=s.nodes[e.b];
-    s.ctx.strokeStyle=e.diagonal?'rgba(255,186,59,0.20)':'rgba(155,198,255,0.26)';
-    s.ctx.lineWidth=e.diagonal?1.4:2;
-    s.ctx.beginPath();
-    s.ctx.moveTo(a.x,a.y);
-    s.ctx.lineTo(b.x,b.y);
-    s.ctx.stroke();
-  });
-
-  // ---- Transit route (scenario 1) ----
-  if(s.transitPath && s.transitPath.length>=2){
-    s.ctx.strokeStyle='rgba(34,211,238,0.85)';
-    s.ctx.lineWidth=4;
-    s.ctx.setLineDash([10,6]);
-    s.ctx.lineDashOffset=-(t*0.5);
-    s.ctx.beginPath();
-    for(let i=0;i<s.transitPath.length;i++){
-      const n=s.nodes[s.transitPath[i]];
-      if(i===0) s.ctx.moveTo(n.x,n.y); else s.ctx.lineTo(n.x,n.y);
-    }
-    s.ctx.stroke();
-    s.ctx.setLineDash([]);
-    // label in the middle of the route
-    const mid=s.nodes[s.transitPath[Math.floor(s.transitPath.length/2)]];
-    s.ctx.fillStyle='rgba(5,7,15,0.92)';
-    s.ctx.fillRect(mid.x-32, mid.y-22, 64, 16);
-    s.ctx.fillStyle='rgba(34,211,238,1)';
-    s.ctx.font='600 9px "JetBrains Mono", monospace';
-    s.ctx.textAlign='center'; s.ctx.textBaseline='middle';
-    s.ctx.fillText('TRANSIT', mid.x, mid.y-14);
-  }
-
-  // ---- Agents: follow street network via cached BFS path ----
-  s.agents.forEach(a=>{
-    if(a.state==='travel'){
-      a.t += a.speed;
-      if(a.t>=1){
-        a.t=0;
-        a.pathIdx++;
-        if(a.pathIdx>=a.path.length-1){
-          // Reached target store
-          a.state='satisfied';
-          a.pause=25+Math.floor(Math.random()*35);
-          const store=s.stores.find(st=>st.node===a.target);
-          if(store) store.fed++;
-          a.from=a.target; a.to=a.target;
-        } else {
-          a.from=a.path[a.pathIdx];
-          a.to=a.path[a.pathIdx+1];
-        }
-      }
-      if(a.from!==a.to){
-        const fn=s.nodes[a.from], tn=s.nodes[a.to];
-        a.x = fn.x + (tn.x-fn.x)*a.t;
-        a.y = fn.y + (tn.y-fn.y)*a.t;
-      }
-      // Trip trail
-      s.ctx.fillStyle='rgba(124,92,255,0.18)';
-      s.ctx.beginPath(); s.ctx.arc(a.x, a.y, 0.9, 0, Math.PI*2); s.ctx.fill();
-    } else {
-      a.pause--;
-      if(a.pause<=0){
-        const homeId=Math.floor(Math.random()*s.nodes.length);
-        const tgtStore=s.stores[Math.floor(Math.random()*s.stores.length)];
-        const path=s.bfsPath(homeId, tgtStore.node)||[homeId];
-        a.from=path[0]; a.to=path[Math.min(1,path.length-1)]; a.t=0;
-        a.target=tgtStore.node; a.path=path; a.pathIdx=0;
-        a.state='travel';
-        a.x=s.nodes[homeId].x; a.y=s.nodes[homeId].y;
-      }
-    }
-    s.ctx.fillStyle = a.state==='satisfied' ? 'rgba(255,230,150,0.95)' : 'rgba(155,198,255,0.92)';
-    s.ctx.beginPath(); s.ctx.arc(a.x, a.y, 2, 0, Math.PI*2); s.ctx.fill();
-  });
-
-  // ---- Stores at intersections (drawn on top) ----
-  s.stores.forEach((st,i)=>{
-    const n=s.nodes[st.node];
-    const pulse=1+0.35*Math.sin(t*0.05+i);
-    s.ctx.strokeStyle='rgba(255,186,59,0.7)';
-    s.ctx.lineWidth=2;
-    s.ctx.beginPath(); s.ctx.arc(n.x, n.y, 18*pulse, 0, Math.PI*2); s.ctx.stroke();
-    s.ctx.fillStyle='rgba(10,15,28,0.92)';
-    s.ctx.fillRect(n.x-11, n.y-11, 22, 22);
-    s.ctx.strokeStyle='rgba(255,186,59,0.95)';
-    s.ctx.lineWidth=1.5;
-    s.ctx.strokeRect(n.x-11, n.y-11, 22, 22);
-    s.ctx.fillStyle='rgba(255,186,59,1)';
-    s.ctx.font='700 12px "JetBrains Mono", monospace';
-    s.ctx.textAlign='center'; s.ctx.textBaseline='middle';
-    s.ctx.fillText('F', n.x, n.y);
-  });
-
-  // ---- HUD top-right ----
-  const totalFed=s.stores.reduce((a,b)=>a+b.fed,0);
-  const panelW=250, panelH=98;
-  const panelX=W-panelW-16, panelY=20;
-  s.ctx.fillStyle='rgba(5,7,15,0.84)';
-  s.ctx.strokeStyle='rgba(255,186,59,0.30)';
-  s.ctx.lineWidth=1;
-  s.ctx.fillRect(panelX,panelY,panelW,panelH);
-  s.ctx.strokeRect(panelX+.5,panelY+.5,panelW,panelH);
-  s.ctx.fillStyle='rgba(255,186,59,0.90)';
-  s.ctx.font='600 10px "JetBrains Mono", monospace';
-  s.ctx.textAlign='left'; s.ctx.textBaseline='top';
-  s.ctx.fillText('// GEOSPATIAL ABM - jacksonville_hz1', panelX+12, panelY+10);
-  s.ctx.fillStyle='rgba(220,232,247,0.95)';
-  s.ctx.font='600 14px "Plus Jakarta Sans", sans-serif';
-  s.ctx.fillText(`Scenario: ${s.SCENARIOS[s.scenarioIdx]}`, panelX+12, panelY+28);
-  s.ctx.font='500 11px "JetBrains Mono", monospace';
-  s.ctx.fillStyle='rgba(155,198,255,0.85)';
-  const step=Math.floor(t/3);
-  s.ctx.fillText(`Step ${String(step).padStart(4,'0')}  -  Stores ${s.stores.length}  -  Agents ${s.agents.length}`, panelX+12, panelY+52);
-  s.ctx.fillStyle='rgba(255,230,150,0.95)';
-  s.ctx.fillText(`Fed (this run): ${totalFed}`, panelX+12, panelY+72);
-
-  // ---- Legend bottom-right (so it doesn't collide with hero text on the left) ----
-  const legX=W-220, legY=H-32;
-  s.ctx.fillStyle='rgba(5,7,15,0.75)';
-  s.ctx.fillRect(legX, legY-10, 200, 26);
-  s.ctx.font='500 10px "JetBrains Mono", monospace';
-  s.ctx.textAlign='left'; s.ctx.textBaseline='middle';
-  s.ctx.fillStyle='rgba(155,198,255,0.85)';
-  s.ctx.beginPath(); s.ctx.arc(legX+12, legY+3, 2.5, 0, Math.PI*2); s.ctx.fill();
-  s.ctx.fillText('agent (street-following)', legX+22, legY+3);
-
-  // ---- Scenario auto-cycle every ~10s ----
-  if(t%680===0 && t>0){
-    s.scenarioIdx=(s.scenarioIdx+1)%s.SCENARIOS.length;
-    s.init();
-  }
-});
-
-/* ========== REEL 3 - LIVE CHAT + MAP (GeoChatBot demo viz) ========== */
-const animLlm=new Animator(()=>{
-  const cnv=document.getElementById('cnvLlm');
-  const ctx=cnv.getContext('2d');
-  function W(){return cnv.clientWidth}function H(){return cnv.clientHeight}
-  function resize(){const w=cnv.clientWidth=cnv.parentElement.clientWidth,h=cnv.clientHeight=cnv.parentElement.clientHeight;cnv.width=w*DPR;cnv.height=h*DPR;ctx.setTransform(DPR,0,0,DPR,0,0);}
-  resize();addEventListener('resize',resize);
-  // Conversation scripts: each script has [type, text] steps
-  // Types: 'user' (right bubble), 'agent' (left bubble), 'map_points', 'map_clusters', 'map_route', 'map_clear'
-  const SCRIPTS=[
-    {
-      title:'Q1 / 3',
-      prompt:'show food deserts in HZ1',
-      steps:[
-        {kind:'user',text:'Show food deserts in HZ1'},
-        {kind:'agent',text:'Loading geojson...'},
-        {kind:'map',action:'points'},
-        {kind:'agent',text:'Computing access scores...'},
-        {kind:'map',action:'clusters'},
-        {kind:'agent',text:'Found 3 underserved zones.'},
-        {kind:'map',action:'highlight'},
-      ],
-    },
-    {
-      title:'Q2 / 3',
-      prompt:'add transit route to closest food site',
-      steps:[
-        {kind:'user',text:'Add a transit route to the closest food site'},
-        {kind:'agent',text:'Solving shortest path...'},
-        {kind:'map',action:'route'},
-        {kind:'agent',text:'Travel time reduced by 15 min.'},
-      ],
-    },
-    {
-      title:'Q3 / 3',
-      prompt:'cluster residents by income tier',
-      steps:[
-        {kind:'user',text:'Cluster residents by income tier'},
-        {kind:'agent',text:'Running kmeans on 8200 rows...'},
-        {kind:'map',action:'clusters_color'},
-        {kind:'agent',text:'4 tiers identified.'},
-      ],
-    },
-  ];
-  // Map state
-  const map={points:[],clusters:[],route:null,highlight:[],seed:0};
-  function rebuildMap(action){
-    if(action==='points'){
-      map.points=[];map.clusters=[];map.route=null;map.highlight=[];
-      const baseX=W()*0.62,baseY=H()*0.52,RX=W()*0.20,RY=H()*0.30;
-      for(let i=0;i<140;i++){
-        const a=Math.random()*Math.PI*2,r=Math.sqrt(Math.random());
-        map.points.push({x:baseX+Math.cos(a)*r*RX,y:baseY+Math.sin(a)*r*RY,c:'#22d3ee'});
-      }
-    } else if(action==='clusters'){
-      // Group points into 4 clusters
-      const COLS=['#22d3ee','#7c5cff','#ffba3b','#ff6dd9'];
-      const centers=[
-        {x:W()*0.56,y:H()*0.42},{x:W()*0.70,y:H()*0.42},
-        {x:W()*0.56,y:H()*0.62},{x:W()*0.70,y:H()*0.62},
-      ];
-      map.points.forEach(p=>{
-        let bi=0,bd=1e9;
-        centers.forEach((c,i)=>{const d=Math.hypot(c.x-p.x,c.y-p.y);if(d<bd){bd=d;bi=i;}});
-        p.c=COLS[bi];p.target=centers[bi];
-      });
-    } else if(action==='clusters_color'){
-      const COLS=['#22d3ee','#7c5cff','#ffba3b','#ff6dd9'];
-      map.points.forEach((p,i)=>{p.c=COLS[i%4];p.target=null;});
-    } else if(action==='highlight'){
-      // Pick 3 zones and tag them
-      map.highlight=[
-        {x:W()*0.58,y:H()*0.42,r:38},
-        {x:W()*0.68,y:H()*0.58,r:32},
-        {x:W()*0.74,y:H()*0.45,r:28},
-      ];
-    } else if(action==='route'){
-      map.route={pts:[
-        {x:W()*0.58,y:H()*0.65},
-        {x:W()*0.60,y:H()*0.58},
-        {x:W()*0.62,y:H()*0.52},
-        {x:W()*0.66,y:H()*0.46},
-        {x:W()*0.70,y:H()*0.42},
-      ],progress:0};
-    }
-  }
-  // Conversation runner state
-  const conv={
-    scriptIdx:0,stepIdx:0,
-    bubbles:[], // {kind, text, revealed, y, alpha, x}
-    typing:0,typingTotal:0,typingText:'',typingKind:'user',
-    nextTime:0,
-  };
-  function startScript(){
-    map.points=[];map.clusters=[];map.route=null;map.highlight=[];
-    conv.bubbles=[];conv.stepIdx=0;conv.typing=0;
-    advance(60);
-  }
-  function advance(delay=30){conv.nextTime=delay;}
-  startScript();
-  return {ctx,W,H,SCRIPTS,map,conv,rebuildMap,startScript,advance};
-},(s,t)=>{
-  const W=s.W(),H=s.H();
-  s.ctx.fillStyle='rgba(5,7,15,0.16)';s.ctx.fillRect(0,0,W,H);
-
-  // ============ MAP CANVAS (right ~55%) ============
-  const mapX=W*0.42,mapY=H*0.20,mapW=W-mapX-W*0.04,mapH=H*0.62;
-  // Map background
-  s.ctx.fillStyle='rgba(10,15,28,0.75)';
-  s.ctx.strokeStyle='rgba(255,109,217,0.20)';
-  s.ctx.lineWidth=1;
-  s.ctx.fillRect(mapX,mapY,mapW,mapH);
-  s.ctx.strokeRect(mapX+.5,mapY+.5,mapW,mapH);
-  // Map header bar
-  s.ctx.fillStyle='rgba(255,109,217,0.10)';
-  s.ctx.fillRect(mapX,mapY,mapW,24);
-  s.ctx.fillStyle='rgba(255,109,217,0.90)';
-  s.ctx.font='600 10px "JetBrains Mono", monospace';
-  s.ctx.textAlign='left';s.ctx.textBaseline='middle';
-  s.ctx.fillText('// MAP - jacksonville_hz1.geojson',mapX+12,mapY+12);
-  // Subtle grid inside map
-  s.ctx.strokeStyle='rgba(155,198,255,0.05)';
-  for(let i=0;i<8;i++){
-    s.ctx.beginPath();s.ctx.moveTo(mapX,mapY+24+(mapH-24)*i/8);s.ctx.lineTo(mapX+mapW,mapY+24+(mapH-24)*i/8);s.ctx.stroke();
-    s.ctx.beginPath();s.ctx.moveTo(mapX+mapW*i/8,mapY+24);s.ctx.lineTo(mapX+mapW*i/8,mapY+mapH);s.ctx.stroke();
-  }
-  // Map highlights
-  s.map.highlight.forEach(h=>{
-    const grad=s.ctx.createRadialGradient(h.x,h.y,2,h.x,h.y,h.r);
-    grad.addColorStop(0,'rgba(255,109,217,0.45)');
-    grad.addColorStop(1,'rgba(255,109,217,0)');
-    s.ctx.fillStyle=grad;
-    s.ctx.beginPath();s.ctx.arc(h.x,h.y,h.r,0,Math.PI*2);s.ctx.fill();
-    s.ctx.strokeStyle='rgba(255,109,217,0.7)';
-    s.ctx.lineWidth=1.5;
-    s.ctx.beginPath();s.ctx.arc(h.x,h.y,h.r+4*Math.sin(t*.05),0,Math.PI*2);s.ctx.stroke();
-  });
-  // Map points
-  s.map.points.forEach(p=>{
-    if(p.target){p.x+=(p.target.x-p.x)*.08;p.y+=(p.target.y-p.y)*.08;}
-    s.ctx.fillStyle=p.c;
-    s.ctx.globalAlpha=.85;
-    s.ctx.beginPath();s.ctx.arc(p.x,p.y,2,0,Math.PI*2);s.ctx.fill();
-    s.ctx.globalAlpha=.18;
-    s.ctx.beginPath();s.ctx.arc(p.x,p.y,4,0,Math.PI*2);s.ctx.fill();
-  });
-  s.ctx.globalAlpha=1;
-  // Map route
-  if(s.map.route){
-    s.map.route.progress=Math.min(1,s.map.route.progress+0.012);
-    const u=s.map.route.progress;
-    s.ctx.strokeStyle='rgba(255,230,150,0.85)';
-    s.ctx.lineWidth=2.2;
-    s.ctx.beginPath();
-    for(let i=0;i<s.map.route.pts.length;i++){
-      const ptsToDraw=u*(s.map.route.pts.length-1);
-      if(i>ptsToDraw)break;
-      const p=s.map.route.pts[i];
-      if(i===0)s.ctx.moveTo(p.x,p.y); else s.ctx.lineTo(p.x,p.y);
-    }
-    s.ctx.stroke();
-    // Endpoints
-    const p0=s.map.route.pts[0],pe=s.map.route.pts[s.map.route.pts.length-1];
-    s.ctx.fillStyle='rgba(34,211,238,0.95)';
-    s.ctx.beginPath();s.ctx.arc(p0.x,p0.y,5,0,Math.PI*2);s.ctx.fill();
-    s.ctx.fillStyle='rgba(255,109,217,0.95)';
-    s.ctx.beginPath();s.ctx.arc(pe.x,pe.y,5,0,Math.PI*2);s.ctx.fill();
-  }
-
-  // ============ CHAT PANEL (left ~38%) ============
-  const chatX=W*0.04,chatY=H*0.20,chatW=W*0.34,chatH=H*0.62;
-  // Chat background
-  s.ctx.fillStyle='rgba(10,15,28,0.80)';
-  s.ctx.strokeStyle='rgba(255,109,217,0.25)';
-  s.ctx.fillRect(chatX,chatY,chatW,chatH);
-  s.ctx.strokeRect(chatX+.5,chatY+.5,chatW,chatH);
-  // Chat header
-  s.ctx.fillStyle='rgba(255,109,217,0.10)';
-  s.ctx.fillRect(chatX,chatY,chatW,30);
-  s.ctx.fillStyle='rgba(255,109,217,0.95)';
-  s.ctx.font='600 11px "JetBrains Mono", monospace';
-  s.ctx.textAlign='left';s.ctx.textBaseline='middle';
-  s.ctx.fillText('// GeoChatBot',chatX+12,chatY+15);
-  // Live dot
-  s.ctx.fillStyle='#5cffa1';
-  s.ctx.beginPath();s.ctx.arc(chatX+chatW-16,chatY+15,4,0,Math.PI*2);s.ctx.fill();
-  s.ctx.fillStyle='rgba(220,232,247,0.7)';
-  s.ctx.font='500 9px "JetBrains Mono", monospace';
-  s.ctx.textAlign='right';
-  s.ctx.fillText('live',chatX+chatW-24,chatY+15);
-  s.ctx.textAlign='left';
-  // Render bubbles
-  let yCursor=chatY+50;
-  const innerW=chatW-32;
-  const wrap=(text,maxW)=>{
-    const words=text.split(' ');const lines=[];let line='';
-    s.ctx.font='500 12px "Plus Jakarta Sans", sans-serif';
-    words.forEach(w=>{
-      const test=line?line+' '+w:w;
-      if(s.ctx.measureText(test).width>maxW){lines.push(line);line=w;}else line=test;
-    });
-    if(line)lines.push(line);
-    return lines;
-  };
-  s.conv.bubbles.forEach(b=>{
-    const isUser=b.kind==='user';
-    const maxW=innerW*0.78;
-    const revealedText=b.text.slice(0,b.revealed);
-    const lines=wrap(revealedText,maxW);
-    const bubW=Math.max(40,...lines.map(l=>s.ctx.measureText(l).width))+24;
-    const bubH=lines.length*16+16;
-    const bx=isUser?chatX+chatW-16-bubW:chatX+16;
-    s.ctx.fillStyle=isUser?'rgba(34,211,238,0.18)':'rgba(255,109,217,0.16)';
-    s.ctx.strokeStyle=isUser?'rgba(34,211,238,0.40)':'rgba(255,109,217,0.40)';
-    s.ctx.lineWidth=1;
-    // rounded rect
-    const r=10;
-    s.ctx.beginPath();
-    s.ctx.moveTo(bx+r,yCursor);
-    s.ctx.lineTo(bx+bubW-r,yCursor);
-    s.ctx.arcTo(bx+bubW,yCursor,bx+bubW,yCursor+r,r);
-    s.ctx.lineTo(bx+bubW,yCursor+bubH-r);
-    s.ctx.arcTo(bx+bubW,yCursor+bubH,bx+bubW-r,yCursor+bubH,r);
-    s.ctx.lineTo(bx+r,yCursor+bubH);
-    s.ctx.arcTo(bx,yCursor+bubH,bx,yCursor+bubH-r,r);
-    s.ctx.lineTo(bx,yCursor+r);
-    s.ctx.arcTo(bx,yCursor,bx+r,yCursor,r);
-    s.ctx.closePath();
-    s.ctx.fill();s.ctx.stroke();
-    s.ctx.fillStyle=isUser?'rgba(220,232,247,0.95)':'rgba(255,235,250,0.95)';
-    s.ctx.font='500 12px "Plus Jakarta Sans", sans-serif';
-    s.ctx.textAlign='left';s.ctx.textBaseline='top';
-    lines.forEach((l,i)=>{s.ctx.fillText(l,bx+12,yCursor+10+i*16);});
-    yCursor+=bubH+8;
-  });
-  // Typing indicator
-  if(s.conv.typingTotal>0&&s.conv.typing<s.conv.typingTotal){
-    s.conv.typing++;
-    const cur=s.conv.bubbles[s.conv.bubbles.length-1];
-    if(cur){cur.revealed=Math.floor(cur.text.length*s.conv.typing/s.conv.typingTotal);}
-  }
-  // Step driver
-  s.conv.nextTime--;
-  if(s.conv.nextTime<=0){
-    const script=s.SCRIPTS[s.conv.scriptIdx];
-    if(s.conv.stepIdx>=script.steps.length){
-      // End - hold 90 frames then advance script
-      s.conv.scriptIdx=(s.conv.scriptIdx+1)%s.SCRIPTS.length;
-      s.startScript();
-      return;
-    }
-    const step=script.steps[s.conv.stepIdx];
-    if(step.kind==='user'||step.kind==='agent'){
-      s.conv.bubbles.push({kind:step.kind,text:step.text,revealed:0});
-      s.conv.typing=0;s.conv.typingTotal=Math.max(15,step.text.length*1.4);
-      s.conv.nextTime=s.conv.typingTotal+25;
-    } else if(step.kind==='map'){
-      s.rebuildMap(step.action);
-      s.conv.nextTime=40;
-    }
-    s.conv.stepIdx++;
-  }
-  // Script title in upper-right of map header
-  const script=s.SCRIPTS[s.conv.scriptIdx];
-  s.ctx.fillStyle='rgba(155,198,255,0.7)';
-  s.ctx.font='500 10px "JetBrains Mono", monospace';
-  s.ctx.textAlign='right';s.ctx.textBaseline='middle';
-  s.ctx.fillText(script.title,mapX+mapW-12,mapY+12);
-});
-
-/* ========== Boot ========== */
-const animators=[animGlobe,animEmbed,animAbm,animLlm];
-animators.forEach(a=>a.init());
-showReel(0);
-startAuto();
 </script>
+</head>
+
+<body data-theme="dark">
+<a class="skip" href="#main">Skip to content</a>
+<div class="page-progress" data-page-progress></div>
+
+<header class="topbar">
+  <a class="brand" href="#top" aria-label="Goshtasb Shahriari Mehr — back to top">
+    <img src="assets/photo.jpeg" alt="" width="36" height="36">
+    <span>Goshtasb Shahriari</span>
+  </a>
+  <nav id="primary-nav" aria-label="Primary">
+    <a href="#profile">Profile</a>
+    <a href="#methods">Methods</a>
+    <a href="#education">Education</a>
+    <a href="#labs">Labs</a>
+    <a href="#projects">Built</a>
+    <a href="#papers">Papers</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <a class="cta" href="assets/cv.pdf" download>CV ↓</a>
+  <button class="icon-btn menu-btn" data-menu aria-controls="primary-nav" aria-expanded="false" aria-label="Open navigation menu">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+  </button>
+  <button class="icon-btn" data-theme-toggle aria-label="Switch colour theme">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.9 4.9l1.4 1.4m11.4 11.4 1.4 1.4M2 12h2m16 0h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+  </button>
+</header>
+
+<aside class="compact-profile" aria-label="Quick profile"></aside>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="top" data-hero>
+    <div class="hero-center">
+      <p class="hero-kicker eyebrow">
+        <span data-reel-count>01 / 04</span><span class="dot" aria-hidden="true"></span><span data-reel-label>Spatial path</span>
+      </p>
+      <h1><span data-reel-title>A spatial mind,</span><em data-reel-em>in motion.</em></h1>
+      <p class="hero-lede" data-reel-body></p>
+      <div class="hero-chips" data-reel-chips></div>
+      <div class="hero-actions">
+        <a class="primary" href="#projects">See what I have built ↓</a>
+        <a href="assets/cv.pdf" download>Download CV ↓</a>
+        <a href="#contact">Get in touch ↗</a>
+      </div>
+    </div>
+    <div class="reel-switcher">
+      <div class="reel-nav" role="group" aria-label="Choose hero story">
+        <button type="button" data-reel="0" aria-label="Story 1: spatial path">01</button>
+        <button type="button" data-reel="1" aria-label="Story 2: machine learning">02</button>
+        <button type="button" data-reel="2" aria-label="Story 3: agent-based modeling">03</button>
+        <button type="button" data-reel="3" aria-label="Story 4: LLM agents">04</button>
+      </div>
+      <p class="reel-status"><strong>Research to production</strong><span class="reel-line" data-reel-bar></span></p>
+      <button class="reel-arrow" type="button" data-next aria-label="Next story">→</button>
+    </div>
+  </section>
+
+  <!-- ================= PROFILE ================= -->
+  <section class="chapter profile-stage" id="profile">
+    <figure class="reveal">
+      <img src="assets/photo.jpeg" alt="Portrait of Goshtasb Shahriari Mehr" width="740" height="925">
+      <dl class="profile-facts" id="profile-facts"></dl>
+    </figure>
+    <div class="profile-copy reveal">
+      <p class="eyebrow">Ph.D. · ML / AI Engineer · Spatial Systems</p>
+      <h2>I turn spatial research into <span>working systems.</span></h2>
+      <p class="lead">I build LLM agents, spatial machine learning, and agent-based simulations — then ship them as real software with tests, evaluations, and security audits behind them.</p>
+      <div class="bio" id="bio"></div>
+      <div class="profile-actions">
+        <a class="primary" href="assets/cv.pdf" download>Download CV ↓</a>
+        <a href="mailto:goshtasbshahriari@gmail.com">Email me ↗</a>
+        <a href="https://github.com/GoshtasbSh" target="_blank" rel="noopener">GitHub ↗</a>
+        <a href="https://www.linkedin.com/in/goshtasb-shahriari-mehr-1826bb130/" target="_blank" rel="noopener">LinkedIn ↗</a>
+        <a href="https://scholar.google.com/citations?user=Bruj7TQAAAAJ&hl=en" target="_blank" rel="noopener">Scholar ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= METHODS ================= -->
+  <section class="chapter image-chapter" id="methods" style="background-image:url('shared/img/geoai-studio.webp')">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow">Capabilities</p>
+        <h2 class="section-title">Eight methods.<br><em>One obsession.</em></h2>
+      </div>
+      <p>From agent reasoning to spatial statistics, each method is tied to a system I actually built. Open any row for the evidence.</p>
+    </div>
+    <div class="rows" id="method-list"></div>
+  </section>
+
+  <!-- ================= EDUCATION ================= -->
+  <section class="chapter education" id="education">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow">Education</p>
+        <h2 class="section-title">Built from the<br><em>ground up.</em></h2>
+      </div>
+      <p>The timeline travels upward, from geomatics foundations in Tehran to a defended Ph.D. and a dual engineering master's at the University of Florida.</p>
+    </div>
+    <div class="timeline" id="timeline"></div>
+  </section>
+
+  <!-- ================= LABS ================= -->
+  <section class="chapter image-chapter" id="labs" style="background-image:url('shared/img/research-lab.webp')">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow">Appointments</p>
+        <h2 class="section-title">Research is<br><em>a team sport.</em></h2>
+      </div>
+      <p>Five appointments across two universities, where spatial analysis, housing, resilience, trust, and adaptation meet.</p>
+    </div>
+    <div class="rows" id="lab-list"></div>
+  </section>
+
+  <!-- ================= PROJECTS ================= -->
+  <section class="chapter" id="projects">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow">Selected work</p>
+        <h2 class="section-title">Things I have<br><em>actually built.</em></h2>
+      </div>
+      <p>Real product footage, real engineering records. Hover a card — on a phone, just scroll it into view — to watch the system run.</p>
+    </div>
+    <div class="filters" id="project-filters" role="group" aria-label="Filter projects by category"></div>
+    <div class="projects" id="projects-grid"></div>
+    <div class="more-row" id="projects-more" hidden><button type="button"></button></div>
+  </section>
+
+  <!-- ================= PAPERS + TEACHING ================= -->
+  <div class="duet" id="papers">
+    <section style="background-image:url('shared/img/cartographic-archive.webp')">
+      <p class="eyebrow">Peer reviewed</p>
+      <h2 class="section-title">Published<br><em>work.</em></h2>
+      <div id="paper-list"></div>
+      <div class="prep">
+        <h4>Manuscripts in preparation</h4>
+        <ul id="prep-list"></ul>
+      </div>
+    </section>
+    <section>
+      <p class="eyebrow">Teaching record</p>
+      <h2 class="section-title">Courses<br><em>taught.</em></h2>
+      <div class="teach-list" id="teaching-list"></div>
+      <div class="honors">
+        <h4>Honors &amp; awards</h4>
+        <div id="honor-list"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= SKILLS ================= -->
+  <section class="chapter" id="skills">
+    <div class="section-head reveal">
+      <div>
+        <p class="eyebrow">Toolkit</p>
+        <h2 class="section-title">What I work<br><em>with.</em></h2>
+      </div>
+      <p>Everything listed here appears in a shipped system or a published paper — not a tutorial.</p>
+    </div>
+    <div class="skills-grid" id="skills-grid"></div>
+  </section>
+
+  <!-- ================= CONTACT ================= -->
+  <footer class="contact" id="contact">
+    <h2>Let's build<br><em>something spatial.</em></h2>
+    <p>I am open to ML / AI engineering and geospatial data science roles, research collaborations, and consulting. The fastest way to reach me is email.</p>
+    <div class="contact-actions">
+      <a class="primary" href="mailto:goshtasbshahriari@gmail.com">goshtasbshahriari@gmail.com</a>
+      <a href="assets/cv.pdf" download>Download CV ↓</a>
+      <a href="https://github.com/GoshtasbSh" target="_blank" rel="noopener">GitHub ↗</a>
+      <a href="https://www.linkedin.com/in/goshtasb-shahriari-mehr-1826bb130/" target="_blank" rel="noopener">LinkedIn ↗</a>
+      <a href="https://scholar.google.com/citations?user=Bruj7TQAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar ↗</a>
+      <a href="https://orcid.org/0000-0001-5867-9675" target="_blank" rel="noopener">ORCID ↗</a>
+    </div>
+    <div class="footmeta">
+      <span>Gainesville, Florida, USA</span>
+      <a href="mailto:g.shahriarimehr@ufl.edu">g.shahriarimehr@ufl.edu</a>
+      <a href="https://dcp.ufl.edu/fiber/" target="_blank" rel="noopener">UF FIBER</a>
+      <a href="https://dcp.ufl.edu/fiber/disasters-trust-and-social-change-lab/" target="_blank" rel="noopener">DTSC Lab</a>
+      <a href="https://shimberg.ufl.edu/" target="_blank" rel="noopener">Shimberg Center</a>
+      <span>© <span data-year>2026</span> Goshtasb Shahriari Mehr</span>
+    </div>
+  </footer>
+
+</main>
+
+<dialog class="record-dialog" id="record-dialog" aria-label="Record">
+  <div class="dialog-inner">
+    <button class="dialog-close" type="button" data-close aria-label="Close record">×</button>
+    <div data-dialog-body></div>
+  </div>
+</dialog>
+
+<script src="shared/data.js"></script>
+<script src="shared/site.js"></script>
 </body>
 </html>
